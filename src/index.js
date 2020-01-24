@@ -18,22 +18,16 @@ class App extends React.Component {
     //Parse this down further https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
     async randomMeals() {
         const listMeals = [];
-        const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
+        const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta');
         const data = await res.json();
         const meals = await data.meals; //Array
         for(let i = 0, len = meals.length; i < len; i++) {
-            listMeals.push(<SearchCards mealTitle={meals[i].strMeal} category={meals[i].strCategory} imgSrc={meals[i].strMealThumb} area={meals[i].strArea} tags={meals[i].strTags} />)
+            const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
+            const jsonMeal = await searchMeal.json();
+            const yeet = jsonMeal.meals[0];
+            listMeals.push(<SearchCards mealTitle={yeet.strMeal} category={yeet.strCategory} imgSrc={yeet.strMealThumb} area={yeet.strArea} tags={yeet.strTags} />)
         }
 
-        /*
-        const realList = await meals.map(async (mealObject) => { //Each object is actually an object
-            const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealObject.strMeal}`);
-            const jsonMeal = await searchMeal.json();
-            const meal = await jsonMeal.meals[0];
-            return (<SearchCards mealTitle={meal.strMeal} category={meal.strCategory} imgSrc={meal.strMealThumb} area={meal.strArea} tags={meal.strTags} />);
-        })*/
-
-        console.log(listMeals)
         this.setState({
             filterList: <div>
                 {listMeals}
