@@ -17,8 +17,9 @@ class App extends React.Component {
         this.showMeals();
     }
 
-    async showMeals(url, clicked = false) { //Reuse this
+    async showMeals(url, clicked = false) { 
         const listMeals = [];
+
         if(clicked) { //Shows category/area based on button clicked
             const res = await fetch(url);
             const data = await res.json();
@@ -29,6 +30,7 @@ class App extends React.Component {
                 const meal = jsonMeal.meals[0];
                 listMeals.push(<SearchCards key={meal.strID} mealTitle={meal.strMeal} category={meal.strCategory} imgSrc={meal.strMealThumb} area={meal.strArea} tags={meal.strTags} />)
             }
+
         } else { //Shows random category when page is visited
             const randomCategory = categories[Math.floor(Math.random() * 14)];
             const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${randomCategory}`);
@@ -47,10 +49,10 @@ class App extends React.Component {
                 <div>
                     {listMeals}
                 </div>
-        })
+            })
     }
 
-    async getData(e, filter) { //Might have to move this function up to App Class
+    async getData(e, filter) {
         let baseUrl; 
         const clicked = true;
         if (filter === 'area') {
@@ -63,9 +65,6 @@ class App extends React.Component {
 
         const appendToBase = e.target.value;
         const endPoint = baseUrl + appendToBase;
-        const res = await fetch(endPoint);
-        const data = await res.json();
-        const meals = data.meals;
         this.showMeals(endPoint, clicked)
     }
 
