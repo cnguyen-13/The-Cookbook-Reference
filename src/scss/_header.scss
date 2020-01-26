@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
 
 @media (min-width: 500px) {
+
     h1 {
         text-align: center;
         span.initials {
             font-family: 'Bungee Shade', cursive;
         }
     }
+
+    h2.category-list-title, h2.area-list-title {
+        margin: 5px;
+    }
+    .area-button, .category-button {
+        cursor: pointer;
+        color: white;
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #50B34A;
+    }
+
 }

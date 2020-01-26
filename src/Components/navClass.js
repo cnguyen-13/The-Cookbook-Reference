@@ -4,6 +4,7 @@ class Area extends React.Component {
     render() {
         return (
             <div id="area-list">
+                <h2 className="area-list-title">Areas: </h2>
                 <button className="area-button" onClick={(e) => this.props.getData(e, 'area')} value="American">American</button>
                 <button className="area-button" onClick={(e) => this.props.getData(e, 'area')} value="British">British</button>
                 <button className="area-button" onClick={(e) => this.props.getData(e, 'area')} value="Canadian">Canadian</button>
@@ -37,6 +38,7 @@ class Categories extends React.Component {
     render() {
         return (
             <div id="category-list">
+                <h2 className="category-list-title">Categories: </h2>
                 <button className="category-button" onClick={(e) => this.props.getData(e, 'cat')} value="Beef">Beef</button>
                 <button className="category-button" onClick={(e) => this.props.getData(e, 'cat')} value="Breakfast">Breakfast</button>
                 <button className="category-button" onClick={(e) => this.props.getData(e, 'cat')} value="Chicken">Chicken</button>
