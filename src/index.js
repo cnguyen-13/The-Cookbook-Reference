@@ -13,7 +13,6 @@ class App extends React.Component {
         this.state = {
             filterList: null
         };
-
         this.showMeals = this.showMeals.bind(this);
         this.getData = this.getData.bind(this);
         this.showRecipe = this.showRecipe.bind(this);
@@ -55,7 +54,6 @@ class App extends React.Component {
     }
 
     showRecipe(meal) {
-        console.log(meal);
         this.setState({filterList: <ShowRecipe meal={meal} />});
     }
 

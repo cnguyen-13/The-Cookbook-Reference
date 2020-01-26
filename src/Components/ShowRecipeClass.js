@@ -5,26 +5,33 @@ export class ShowRecipe extends React.Component {
         super(props);
         this.ingredientsWithMeasurements = null;
         this.instructions = null;
-        this.createList = this.createList.bind(this);
-        this.createList();
+        this.createIngredList = this.createIngredList.bind(this);
+        this.parseInstructions = this.parseInstructions.bind(this);
+        this.createIngredList();
+        this.parseInstructions();
     }   
 
-    createList() {
+    createIngredList() {
         //Creates ingred list
         const str = 'strIngredient';
         let counter = 1;
         const lists = [];
-        while(this.props.meal[`${str + counter}`] != null) {
+        while(this.props.meal[`${str + counter}`] != '') {
             lists.push([this.props.meal[`strMeasure${counter}`], this.props.meal[`${str + counter}`]])
             counter++;
         }
 
         this.ingredientsWithMeasurements = lists.map(item => {
-            return <li key={item}>{`${item[0]} ${item[1]}`}</li>
+            return <li key={item[1]}>{`${item[0]} ${item[1]}`}</li>
         })
+    }
 
-        //Creates instructions, MUST parse  this.props.meal.strInstructions(string btw) by '.' 
-
+    parseInstructions() {
+        //Creates instructions
+        const steps = this.props.meal['strInstructions'].split('.');
+        this.instructions = steps.map(instruction => {
+            return <li key={instruction}>{instruction}</li>
+        });
     }
 
     render() {
@@ -32,12 +39,19 @@ export class ShowRecipe extends React.Component {
             <div className="recipe-card">
                 <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
                 <img className="recipe-card-image" src={this.props.meal.strMealThumb} alt={this.props.meal.strMeal}/>
-                <ul className="recipe-card-ingredients">
-                    {this.ingredientsWithMeasurements}
-                </ul>
-                <ol className="recipe-card-instructions">
-                    <li>{this.props.meal.strInstructions}</li>
-                </ol>
+                <section className="recipe-card-ingrendients">
+                    <h3 className="recipe-card-ingrendients-title">Ingredients</h3>
+                    <ul>
+                        {this.ingredientsWithMeasurements}
+                    </ul>
+                </section>
+
+                <section className="recipe-card-instructions">
+                    <h3 className="recipe-card-instructions-title">Instructions</h3>
+                    <ol>
+                        {this.instructions}
+                    </ol>
+                </section>
             </div>
         );
     }
