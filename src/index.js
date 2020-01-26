@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { SearchCards } from './Components/searchCardsClass';
 import { ShowRecipe } from './Components/ShowRecipeClass';
 import { Navigation } from './Components/navClass';
-import './styles/searchCard.css'
+import './styles/styles.css';
 
 const categories = ['Beef', 'Breakfast', 'Chicken', 'Dessert', 'Goat', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Side', 'Starter', 'Vegan', 'Vegetarian'];
 

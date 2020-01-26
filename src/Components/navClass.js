@@ -65,7 +65,7 @@ export class Navigation extends React.Component {
     render() {
         return (
             <header>
-                <h1>The Cookbook Reference</h1>
+                <h1>The Cookbook Reference <span className="initials">TCR</span></h1>
                 <Area getData={this.props.getData} />
                 <Categories getData={this.props.getData} />
             </header>

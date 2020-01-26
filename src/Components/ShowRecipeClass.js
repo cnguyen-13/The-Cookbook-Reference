@@ -16,7 +16,7 @@ export class ShowRecipe extends React.Component {
         const str = 'strIngredient';
         let counter = 1;
         const lists = [];
-        while(this.props.meal[`${str + counter}`] != '') {
+        while(this.props.meal[`${str + counter}`] !== '') {
             lists.push([this.props.meal[`strMeasure${counter}`], this.props.meal[`${str + counter}`]])
             counter++;
         }
@@ -41,14 +41,14 @@ export class ShowRecipe extends React.Component {
                 <img className="recipe-card-image" src={this.props.meal.strMealThumb} alt={this.props.meal.strMeal}/>
                 <section className="recipe-card-ingrendients">
                     <h3 className="recipe-card-ingrendients-title">Ingredients</h3>
-                    <ul>
+                    <ul className="recipe-card-ingrendients-list">
                         {this.ingredientsWithMeasurements}
                     </ul>
                 </section>
 
                 <section className="recipe-card-instructions">
                     <h3 className="recipe-card-instructions-title">Instructions</h3>
-                    <ol>
+                    <ol className="recipe-card-instructions-list">
                         {this.instructions}
                     </ol>
                 </section>
