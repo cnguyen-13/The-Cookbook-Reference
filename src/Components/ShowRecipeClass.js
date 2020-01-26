@@ -22,7 +22,7 @@ export class ShowRecipe extends React.Component {
         }
 
         this.ingredientsWithMeasurements = lists.map(item => {
-            return <li key={item[1]}>{`${item[0]} ${item[1]}`}</li>
+            return <li key={item[1]}>{`${item[0]} - ${item[1]}`}</li>
         })
     }
 
@@ -38,11 +38,14 @@ export class ShowRecipe extends React.Component {
     render() {
         return (
             <div className="recipe-card">
-                <h2 className="recipe-card-title">{this.props.meal.strMeal} <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small></h2>
+                <section className="recipe-card-details">
+                <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
+                    <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
+                </section>
                 <img className="recipe-card-image" src={this.props.meal.strMealThumb} alt={this.props.meal.strMeal}/>
-                <section className="recipe-card-ingrendients">
-                    <h3 className="recipe-card-ingrendients-title">Ingredients</h3>
-                    <ul className="recipe-card-ingrendients-list">
+                <section className="recipe-card-ingredients">
+                    <h3 className="recipe-card-ingredients-title">Ingredients</h3>
+                    <ul className="recipe-card-ingredients-list">
                         {this.ingredientsWithMeasurements}
                     </ul>
                 </section>

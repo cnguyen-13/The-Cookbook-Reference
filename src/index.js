@@ -47,7 +47,7 @@ class App extends React.Component {
 
         this.setState({
             filterList: 
-                <div>
+                <div id="main-window">
                     {listMeals}
                 </div>
             })
