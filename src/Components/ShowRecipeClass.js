@@ -29,8 +29,9 @@ export class ShowRecipe extends React.Component {
     parseInstructions() {
         //Creates instructions
         const steps = this.props.meal['strInstructions'].split('.');
+        steps.pop();
         this.instructions = steps.map(instruction => {
-            return <li key={instruction}>{instruction}</li>
+            return <li key={instruction}>{instruction}.</li>
         });
     }
 

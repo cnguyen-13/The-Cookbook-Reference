@@ -75,7 +75,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="gridded">
                 <Navigation getData={this.getData}/>
                 <div>
                     {this.state.filterList}
