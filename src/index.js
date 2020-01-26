@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { SearchCards } from './Components/searchCardsClass';
+import { ShowRecipe } from './Components/ShowRecipeClass';
 import { Navigation } from './Components/navClass';
+import './styles/searchCard.css'
 
 const categories = ['Beef', 'Breakfast', 'Chicken', 'Dessert', 'Goat', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Side', 'Starter', 'Vegan', 'Vegetarian'];
 
@@ -14,12 +16,12 @@ class App extends React.Component {
 
         this.showMeals = this.showMeals.bind(this);
         this.getData = this.getData.bind(this);
+        this.showRecipe = this.showRecipe.bind(this);
         this.showMeals();
     }
 
     async showMeals(url, clicked = false) { 
         const listMeals = [];
-
         if(clicked) { //Shows category/area based on button clicked
             const res = await fetch(url);
             const data = await res.json();
@@ -28,7 +30,7 @@ class App extends React.Component {
                 const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
                 const jsonMeal = await searchMeal.json();
                 const meal = jsonMeal.meals[0];
-                listMeals.push(<SearchCards key={meal.strID} mealTitle={meal.strMeal} category={meal.strCategory} imgSrc={meal.strMealThumb} area={meal.strArea} tags={meal.strTags} />)
+                listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
             }
 
         } else { //Shows random category when page is visited
@@ -40,7 +42,7 @@ class App extends React.Component {
                 const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
                 const jsonMeal = await searchMeal.json();
                 const meal = jsonMeal.meals[0];
-                listMeals.push(<SearchCards key={meal.strID} mealTitle={meal.strMeal} category={meal.strCategory} imgSrc={meal.strMealThumb} area={meal.strArea} tags={meal.strTags} />)
+                listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
             }
         }
 
@@ -50,6 +52,11 @@ class App extends React.Component {
                     {listMeals}
                 </div>
             })
+    }
+
+    showRecipe(meal) {
+        console.log(meal);
+        this.setState({filterList: <ShowRecipe meal={meal} />});
     }
 
     async getData(e, filter) {
