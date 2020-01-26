@@ -1,3 +1,21 @@
-body {
-    display: grid;
+@media (min-width: 1000px) {
+    .gridded {
+        display: grid;
+        min-height: 100vh;
+        grid-template-columns: 1fr 3fr;
+        header {
+
+        }
+    }
 }
+
+
+/*
+            <div className="gridded">
+                <Navigation getData={this.getData}/>
+                <div>
+                    {this.state.filterList}
+                </div>
+            </div>
+
+            */

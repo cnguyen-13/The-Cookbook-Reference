@@ -45,11 +45,30 @@
 
 @media (min-width: 501px) {
     div.recipe-card {
-    .recipe-card-image {
-        width: 400px;
-
-    }   
+        .recipe-card-image {
+            width: 400px;
+        }   
+    }
 }
+
+@media (min-width: 1200px) {
+    div.recipe-card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        .recipe-card-details {
+            grid-column: 1 / span 2;
+        }
+        .recipe-card-image {
+            grid-column: 1 / span 2;
+        }
+        .recipe-card-ingredients {
+            grid-column: 1 / span 1;
+        } 
+        .recipe-card-instructions {
+            grid-column: 2 / span 1;
+        }
+    }
+
 }
 
 /*

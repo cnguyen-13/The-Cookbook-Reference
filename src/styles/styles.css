@@ -1,10 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Playfair Display', serif;
 }
 
 ul li, ol li {
@@ -31,7 +32,7 @@ ul li, ol li {
   }
   div.info-card section.info-card-description h2.info-card-title {
     padding: 10px;
-    background-color: #43aa8b;
+    background-color: #00A076;
     color: white;
     font-size: 16px;
     text-align: center;
@@ -48,7 +49,7 @@ ul li, ol li {
     bottom: -20px;
     right: -20px;
     padding: 10px 20px;
-    background-color: #FF6F59;
+    background-color: #EC3528;
     color: white;
     border: 1px solid grey;
   }
@@ -87,7 +88,13 @@ button.info-card-button {
 }
 
 @media (min-width: 500px) {
+  header {
+    background-color: #00A076;
+    color: white;
+    padding: 20px;
+  }
   h1 {
+    padding-top: 10px;
     text-align: center;
   }
   h1 span.initials {
@@ -154,6 +161,35 @@ button.info-card-button {
   }
 }
 
+@media (min-width: 1200px) {
+  div.recipe-card {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr;
+  }
+  div.recipe-card .recipe-card-details {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / span 2;
+  }
+  div.recipe-card .recipe-card-image {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / span 2;
+  }
+  div.recipe-card .recipe-card-ingredients {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / span 1;
+  }
+  div.recipe-card .recipe-card-instructions {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / span 1;
+  }
+}
+
 /*
             <div className="recipe-card">
                 <section className="recipe-card-details">
@@ -177,8 +213,23 @@ button.info-card-button {
             </div>
 
 */
-body {
-  display: -ms-grid;
-  display: grid;
+@media (min-width: 1000px) {
+  .gridded {
+    display: -ms-grid;
+    display: grid;
+    min-height: 100vh;
+    -ms-grid-columns: 1fr 3fr;
+        grid-template-columns: 1fr 3fr;
+  }
 }
+
+/*
+            <div className="gridded">
+                <Navigation getData={this.getData}/>
+                <div>
+                    {this.state.filterList}
+                </div>
+            </div>
+
+            */
 /*# sourceMappingURL=styles.css.map */

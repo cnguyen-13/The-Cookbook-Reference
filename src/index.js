@@ -77,7 +77,7 @@ class App extends React.Component {
         return (
             <div className="gridded">
                 <Navigation getData={this.getData}/>
-                <div>
+                <div className="bg-image">
                     {this.state.filterList}
                 </div>
             </div>
