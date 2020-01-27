@@ -39,20 +39,17 @@ export class ShowRecipe extends React.Component {
         return (
             <div className="recipe-card">
                 <section className="recipe-card-details">
-                <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
+                    <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
                     <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
                 </section>
                 <section className="recipe-card-ingredients">
-                    <div>
-                        
+                    <div> 
                         <h3 className="recipe-card-ingredients-title">Ingredients</h3>
                         <ul className="recipe-card-ingredients-list">
                             {this.ingredientsWithMeasurements}
                         </ul>      
-    
                         <img src={this.props.meal.strMealThumb} />                   
                     </div>
-            
                 </section>
 
                 <section className="recipe-card-instructions">

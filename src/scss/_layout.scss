@@ -3,19 +3,5 @@
         display: grid;
         min-height: 100vh;
         grid-template-columns: 1fr 3fr;
-        header {
-
-        }
     }
 }
-
-
-/*
-            <div className="gridded">
-                <Navigation getData={this.getData}/>
-                <div>
-                    {this.state.filterList}
-                </div>
-            </div>
-
-            */

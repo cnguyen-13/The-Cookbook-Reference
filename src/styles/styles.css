@@ -144,7 +144,6 @@ button.info-card-button {
     background-color: white;
     border: 1px solid white;
     border-radius: 10px;
-    padding: 10px;
     opacity: 0.95;
   }
   div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title {
@@ -211,32 +210,6 @@ button.info-card-button {
   }
 }
 
-/*
-            <div className="recipe-card">
-                <section className="recipe-card-details">
-                <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
-                    <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
-                </section>
-                <section className="recipe-card-ingredients">
-                    <div>
-                        <h3 className="recipe-card-ingredients-title">Ingredients</h3>
-                        <ul className="recipe-card-ingredients-list">
-                            {this.ingredientsWithMeasurements}
-                        </ul>                        
-                    </div>
-                </section>
-
-                <section className="recipe-card-instructions">
-                    <div>
-                        <h3 className="recipe-card-instructions-title">Instructions</h3>
-                        <ol className="recipe-card-instructions-list">
-                            {this.instructions}
-                        </ol>                       
-                    </div>
-                </section>
-            </div>
-
-*/
 @media (min-width: 1000px) {
   .gridded {
     display: -ms-grid;
@@ -246,14 +219,4 @@ button.info-card-button {
         grid-template-columns: 1fr 3fr;
   }
 }
-
-/*
-            <div className="gridded">
-                <Navigation getData={this.getData}/>
-                <div>
-                    {this.state.filterList}
-                </div>
-            </div>
-
-            */
 /*# sourceMappingURL=styles.css.map */

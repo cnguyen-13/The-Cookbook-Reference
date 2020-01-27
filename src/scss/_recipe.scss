@@ -1,5 +1,4 @@
 @media (min-width: 500px) {
-    
     div.recipe-card {
         display: grid;
         .recipe-card-details {
@@ -10,11 +9,11 @@
         }
         .recipe-card-ingredients {
             padding: 20px;
+            
             div {
                 background-color: white;
                 border: 1px solid white;
                 border-radius: 10px;
-                padding: 10px;
                 opacity: 0.95;
                 .recipe-card-ingredients-title {
                     text-decoration: underline;
@@ -42,7 +41,6 @@
         .recipe-card-instructions {
             padding: 20px;
             div {
-                //
                 background-color: white;
                 border: 1px solid white;
                 border-radius: 10px;;
@@ -80,30 +78,3 @@
         }
     }
 }
-
-/*
-            <div className="recipe-card">
-                <section className="recipe-card-details">
-                <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
-                    <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
-                </section>
-                <section className="recipe-card-ingredients">
-                    <div>
-                        <h3 className="recipe-card-ingredients-title">Ingredients</h3>
-                        <ul className="recipe-card-ingredients-list">
-                            {this.ingredientsWithMeasurements}
-                        </ul>                        
-                    </div>
-                </section>
-
-                <section className="recipe-card-instructions">
-                    <div>
-                        <h3 className="recipe-card-instructions-title">Instructions</h3>
-                        <ol className="recipe-card-instructions-list">
-                            {this.instructions}
-                        </ol>                       
-                    </div>
-                </section>
-            </div>
-
-*/
