@@ -13,13 +13,13 @@ ul li, ol li {
 }
 
 #main-window {
-  background-image: url("../scss/bg-image-2.jpg");
+  background-image: url("../images/bg-image-2.jpg");
   background-size: cover;
   min-height: 100vh;
 }
 
 .bg-image {
-  background-image: url("../scss/bg-image-1.jpg");
+  background-image: url("../images/bg-image-1.jpg");
   background-size: cover;
   min-height: 100vh;
 }
@@ -60,7 +60,7 @@ ul li, ol li {
     height: 50px;
     bottom: -20px;
     right: -20px;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #EC3528;
     color: white;
     border: 1px solid grey;
@@ -151,7 +151,7 @@ button.info-card-button {
     text-decoration: underline;
   }
   div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title::before {
-    content: url("../scss/groceries.png");
+    content: url("../images/groceries.png");
     margin-right: 10px;
   }
   div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-list li {
@@ -179,7 +179,7 @@ button.info-card-button {
     text-decoration: underline;
   }
   div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title::before {
-    content: url("../scss/book.png");
+    content: url("../images/book.png");
     margin-right: 10px;
   }
   div.recipe-card .recipe-card-instructions div .recipe-card-instructions-list li {
@@ -187,7 +187,7 @@ button.info-card-button {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   div.recipe-card {
     display: -ms-grid;
     display: grid;

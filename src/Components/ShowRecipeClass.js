@@ -44,13 +44,15 @@ export class ShowRecipe extends React.Component {
                 </section>
                 <section className="recipe-card-ingredients">
                     <div>
+                        
                         <h3 className="recipe-card-ingredients-title">Ingredients</h3>
                         <ul className="recipe-card-ingredients-list">
                             {this.ingredientsWithMeasurements}
-                        </ul>     
+                        </ul>      
+    
                         <img src={this.props.meal.strMealThumb} />                   
                     </div>
-                   
+            
                 </section>
 
                 <section className="recipe-card-instructions">
