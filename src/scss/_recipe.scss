@@ -1,53 +1,64 @@
 @media (min-width: 500px) {
+    
     div.recipe-card {
         display: grid;
         .recipe-card-details {
             font-size: 125%;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
-        }
-        .recipe-card-image {
-            width: 100%;
-
+            background-color: white;
         }
         .recipe-card-ingredients {
             padding: 20px;
-            .recipe-card-ingredients-title {
-                text-decoration: underline;
-                &::before {
-                    content: url('../scss/groceries.png');
-                    margin-right: 10px;
+            div {
+                background-color: white;
+                border: 1px solid white;
+                border-radius: 10px;
+                padding: 10px;
+                opacity: 0.95;
+                .recipe-card-ingredients-title {
+                    text-decoration: underline;
+                    &::before {
+                        content: url('../scss/groceries.png');
+                        margin-right: 10px;
+                    }
+                }
+                .recipe-card-ingredients-list {
+                    li {
+                        margin-top: 5px;
+                    }
+                }
+                img {
+                    border-radius: 10px;
+                    width: 300px;
+                    height: 300px;
                 }
             }
-            .recipe-card-ingredients-list {
-                li {
-                    margin-top: 5px;
-                }
-            }
+
         }
         .recipe-card-instructions {
             padding: 20px;
-            .recipe-card-instructions-title {
-                text-decoration: underline;
-                &::before {
-                    content: url('../scss/book.png');
-                    margin-right: 10px;
+            div {
+                //
+                background-color: white;
+                border: 1px solid white;
+                border-radius: 10px;;
+                padding: 10px;
+                opacity: 0.95;
+                .recipe-card-instructions-title {
+                    text-decoration: underline;
+                    &::before {
+                        content: url('../scss/book.png');
+                        margin-right: 10px;
+                    }
                 }
-            }
-            .recipe-card-instructions-list {
-                li {
-                    margin-top: 10px;
-                }
+                .recipe-card-instructions-list {
+                    li {
+                        margin-top: 10px;
+                    }
+                }               
             }
         }
-    }
-}
-
-@media (min-width: 501px) {
-    div.recipe-card {
-        .recipe-card-image {
-            width: 400px;
-        }   
     }
 }
 
@@ -56,9 +67,6 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         .recipe-card-details {
-            grid-column: 1 / span 2;
-        }
-        .recipe-card-image {
             grid-column: 1 / span 2;
         }
         .recipe-card-ingredients {
@@ -77,19 +85,22 @@
                 <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
                     <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
                 </section>
-                <img className="recipe-card-image" src={this.props.meal.strMealThumb} alt={this.props.meal.strMeal}/>
                 <section className="recipe-card-ingredients">
-                    <h3 className="recipe-card-ingredients-title">Ingredients</h3>
-                    <ul className="recipe-card-ingredients-list">
-                        {this.ingredientsWithMeasurements}
-                    </ul>
+                    <div>
+                        <h3 className="recipe-card-ingredients-title">Ingredients</h3>
+                        <ul className="recipe-card-ingredients-list">
+                            {this.ingredientsWithMeasurements}
+                        </ul>                        
+                    </div>
                 </section>
 
                 <section className="recipe-card-instructions">
-                    <h3 className="recipe-card-instructions-title">Instructions</h3>
-                    <ol className="recipe-card-instructions-list">
-                        {this.instructions}
-                    </ol>
+                    <div>
+                        <h3 className="recipe-card-instructions-title">Instructions</h3>
+                        <ol className="recipe-card-instructions-list">
+                            {this.instructions}
+                        </ol>                       
+                    </div>
                 </section>
             </div>
 

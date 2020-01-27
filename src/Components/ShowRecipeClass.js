@@ -31,7 +31,7 @@ export class ShowRecipe extends React.Component {
         const steps = this.props.meal['strInstructions'].split('.');
         steps.pop();
         this.instructions = steps.map(instruction => {
-            return <li key={instruction}>{instruction}.</li>
+            return <li key={instruction}>{instruction}.</li>  
         });
     }
 
@@ -42,19 +42,24 @@ export class ShowRecipe extends React.Component {
                 <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
                     <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
                 </section>
-                <img className="recipe-card-image" src={this.props.meal.strMealThumb} alt={this.props.meal.strMeal}/>
                 <section className="recipe-card-ingredients">
-                    <h3 className="recipe-card-ingredients-title">Ingredients</h3>
-                    <ul className="recipe-card-ingredients-list">
-                        {this.ingredientsWithMeasurements}
-                    </ul>
+                    <div>
+                        <h3 className="recipe-card-ingredients-title">Ingredients</h3>
+                        <ul className="recipe-card-ingredients-list">
+                            {this.ingredientsWithMeasurements}
+                        </ul>     
+                        <img src={this.props.meal.strMealThumb} />                   
+                    </div>
+                   
                 </section>
 
                 <section className="recipe-card-instructions">
-                    <h3 className="recipe-card-instructions-title">Instructions</h3>
-                    <ol className="recipe-card-instructions-list">
-                        {this.instructions}
-                    </ol>
+                    <div>
+                        <h3 className="recipe-card-instructions-title">Instructions</h3>
+                        <ol className="recipe-card-instructions-list">
+                            {this.instructions}
+                        </ol>                       
+                    </div>
                 </section>
             </div>
         );

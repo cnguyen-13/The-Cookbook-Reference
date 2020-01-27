@@ -12,3 +12,14 @@ ul li, ol li {
     margin-left: 50px;
 }
 
+#main-window {
+    background-image: url('../scss/bg-image-2.jpg');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('../scss/bg-image-1.jpg');
+    background-size: cover;
+    min-height: 100vh;  
+}
