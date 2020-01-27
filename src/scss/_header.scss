@@ -1,30 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap');
-
-@media (min-width: 500px) {
-    header {
-        background-color: #00A076;
-        color: white;
-        padding: 20px;
-    }
+header {
+    background-color: $color-primary;
+    color: $color-outline-text;
+    padding: 20px;
     h1 {
         padding-top: 10px;
         text-align: center;
         span.initials {
-            font-family: 'Bungee Shade', cursive;
+            font-family: $font-logo;
         }
     }
+}
 
-    h2.category-list-title, h2.area-list-title {
-        margin: 5px;
-    }
-    .area-button, .category-button {
-        cursor: pointer;
-        color: white;
-        margin: 5px;
-        padding: 5px;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: #50B34A;
-    }
+h2.category-list-title, h2.area-list-title {
+    margin: 5px;
+}
 
+.area-button, .category-button {
+    @include button-colors;
+    cursor: pointer;
+    margin: 5px;
+    padding: 7px;
+    border: 1px solid $color-outline-text;
+    border-radius: 5px;
 }

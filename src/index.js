@@ -19,9 +19,9 @@ class App extends React.Component {
         this.showMeals();
     }
 
-    async showMeals(url, clicked = false) { 
+    async showMeals(url, wasClicked = false) { 
         const listMeals = [];
-        if(clicked) { //Shows category/area based on button clicked
+        if(wasClicked) { //Shows category/area based on button clicked
             const res = await fetch(url);
             const data = await res.json();
             const meals = data.meals; 
@@ -47,7 +47,7 @@ class App extends React.Component {
 
         this.setState({
             filterList: 
-                <div id="main-window">
+                <div id="search-cards-bg">
                     {listMeals}
                 </div>
             })
@@ -59,7 +59,7 @@ class App extends React.Component {
 
     async getData(e, filter) {
         let baseUrl; 
-        const clicked = true;
+        const wasClicked = true;
         if (filter === 'area') {
             baseUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
         } else if (filter === 'cat') {
@@ -70,14 +70,14 @@ class App extends React.Component {
 
         const appendToBase = e.target.value;
         const endPoint = baseUrl + appendToBase;
-        this.showMeals(endPoint, clicked)
+        this.showMeals(endPoint, wasClicked)
     }
 
     render() {
         return (
             <div className="gridded">
                 <Navigation getData={this.getData}/>
-                <div className="bg-image">
+                <div id="recipe-card-bg">
                     {this.state.filterList}
                 </div>
             </div>

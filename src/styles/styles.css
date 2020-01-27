@@ -1,51 +1,48 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
-ul li, ol li {
-  margin-left: 50px;
-}
-
-#main-window {
-  background-image: url("../images/bg-image-2.jpg");
+#search-cards-bg {
+  background-image: url("../images/search-card-bg.jpg");
   background-size: cover;
   min-height: 100vh;
 }
 
-.bg-image {
-  background-image: url("../images/bg-image-1.jpg");
+#recipe-card-bg {
+  background-image: url("../images/recipe-card-bg.jpg");
   background-size: cover;
   min-height: 100vh;
 }
 
 @media (min-width: 500px) {
   div.info-card {
-    margin: 15px;
-    width: 400px;
     border: 1px solid grey;
+    width: 400px;
     word-wrap: break-word;
+    margin: 20px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
   }
   div.info-card img.info-card-image {
-    display: inline-block;
     width: 175px;
     height: 175px;
   }
   div.info-card section.info-card-description {
-    display: inline-block;
     width: 223px;
     position: relative;
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
   }
   div.info-card section.info-card-description h2.info-card-title {
     padding: 10px;
     background-color: #00A076;
-    color: white;
+    color: #FFFFFF;
     font-size: 16px;
     text-align: center;
   }
@@ -54,90 +51,56 @@ ul li, ol li {
     font-size: 14px;
   }
   div.info-card section.info-card-description button.info-card-button {
-    cursor: pointer;
+    border: 1px solid grey;
+    color: #FFFFFF;
+    background-color: #EC3528;
     position: absolute;
+    cursor: pointer;
     width: 100px;
     height: 50px;
     bottom: -20px;
     right: -20px;
     padding: 10px;
-    background-color: #EC3528;
-    color: white;
-    border: 1px solid grey;
   }
 }
 
-div.info-card {
-  margin: 20px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  border: 1px solid grey;
+header {
+  background-color: #00A076;
+  color: #FFFFFF;
+  padding: 20px;
 }
 
-img.info-card-image {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-}
-
-section.info-card-description {
-  display: inline-block;
-  position: relative;
-  background-color: #EEEEEE;
-}
-
-h2.info-card-title {
-  padding: 5px;
-  background-color: #43aa8b;
-  color: white;
+header h1 {
+  padding-top: 10px;
   text-align: center;
 }
 
-button.info-card-button {
-  bottom: -30px;
-  right: -30px;
+header h1 span.initials {
+  font-family: "Bungee Shade", cursive;
+}
+
+h2.category-list-title, h2.area-list-title {
+  margin: 5px;
+}
+
+.area-button, .category-button {
+  color: #FFFFFF;
+  background-color: #EC3528;
+  cursor: pointer;
+  margin: 5px;
+  padding: 7px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
 }
 
 @media (min-width: 500px) {
-  header {
-    background-color: #00A076;
-    color: white;
-    padding: 20px;
-  }
-  h1 {
-    padding-top: 10px;
-    text-align: center;
-  }
-  h1 span.initials {
-    font-family: 'Bungee Shade', cursive;
-  }
-  h2.category-list-title, h2.area-list-title {
-    margin: 5px;
-  }
-  .area-button, .category-button {
-    cursor: pointer;
-    color: white;
-    margin: 5px;
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #50B34A;
-  }
-}
-
-@media (min-width: 500px) {
-  div.recipe-card {
-    display: -ms-grid;
-    display: grid;
-  }
   div.recipe-card .recipe-card-details {
     font-size: 125%;
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: #FFFFFF;
   }
-  div.recipe-card .recipe-card-ingredients {
+  div.recipe-card .recipe-card-ingredients, div.recipe-card .recipe-card-instructions {
     padding: 20px;
   }
   div.recipe-card .recipe-card-ingredients div {
@@ -145,6 +108,7 @@ button.info-card-button {
     border: 1px solid white;
     border-radius: 10px;
     opacity: 0.95;
+    padding: 10px;
   }
   div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title {
     text-decoration: underline;
@@ -153,10 +117,7 @@ button.info-card-button {
     content: url("../images/groceries.png");
     margin-right: 10px;
   }
-  div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-list li {
-    margin-top: 5px;
-  }
-  div.recipe-card .recipe-card-ingredients div img {
+  div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-image {
     border-radius: 10px;
     display: block;
     opacity: 1;
@@ -164,15 +125,12 @@ button.info-card-button {
     width: 95%;
     height: width;
   }
-  div.recipe-card .recipe-card-instructions {
-    padding: 20px;
-  }
   div.recipe-card .recipe-card-instructions div {
     background-color: white;
     border: 1px solid white;
     border-radius: 10px;
-    padding: 10px;
     opacity: 0.95;
+    padding: 10px;
   }
   div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title {
     text-decoration: underline;
@@ -180,9 +138,6 @@ button.info-card-button {
   div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title::before {
     content: url("../images/book.png");
     margin-right: 10px;
-  }
-  div.recipe-card .recipe-card-instructions div .recipe-card-instructions-list li {
-    margin-top: 10px;
   }
 }
 
@@ -208,6 +163,11 @@ button.info-card-button {
     -ms-grid-column-span: 1;
     grid-column: 2 / span 1;
   }
+}
+
+ul li, ol li {
+  margin-left: 50px;
+  margin-top: 10px;
 }
 
 @media (min-width: 1000px) {

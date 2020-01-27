@@ -1,15 +1,7 @@
-ul li, ol li {    
-    margin-left: 50px;
+#search-cards-bg {
+    @include background-img('../images/search-card-bg.jpg');
 }
 
-#main-window {
-    background-image: url('../images/bg-image-2.jpg');
-    background-size: cover;
-    min-height: 100vh;
-}
-
-.bg-image {
-    background-image: url('../images/bg-image-1.jpg');
-    background-size: cover;
-    min-height: 100vh;  
+#recipe-card-bg {
+    @include background-img('../images/recipe-card-bg.jpg');
 }
