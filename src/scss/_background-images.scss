@@ -1,9 +1,11 @@
 .search-cards-bg {
     @include background-img('../images/search-card-bg.jpg');
+    height: 100%;
     position: relative;
     z-index: 1;
 }
 
 .recipe-card-bg {
+    height: 100%;
     @include background-img('../images/recipe-card-bg.jpg');
 }
