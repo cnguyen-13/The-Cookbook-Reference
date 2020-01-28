@@ -1,0 +1,24 @@
+.initial-screen {
+    position: relative;
+}
+
+.welcome-title {
+    position: relative;
+    color: white;
+    font-size: 500%;
+    margin-left: 10px;
+    padding: 20px;
+    font-weight: bold;
+    animation: movein 1s linear;
+    z-index: 2;
+    
+}
+
+.welcome-title-intro-1, .welcome-title-intro-2 {
+    color: white;
+    font-size: 150%;
+    padding: 20px;
+    margin-left: 10px;
+    opacity: 0;
+    animation: yeet 2s linear 1s forwards;
+}

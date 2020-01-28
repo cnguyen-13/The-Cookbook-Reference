@@ -8,18 +8,6 @@
   font-family: "Playfair Display", serif;
 }
 
-#search-cards-bg {
-  background-image: url("../images/search-card-bg.jpg");
-  background-size: cover;
-  min-height: 100vh;
-}
-
-#recipe-card-bg {
-  background-image: url("../images/recipe-card-bg.jpg");
-  background-size: cover;
-  min-height: 100vh;
-}
-
 @-webkit-keyframes highlight {
   from {
   }
@@ -36,6 +24,82 @@
     background-color: #009EDA;
     padding: 10px;
   }
+}
+
+@-webkit-keyframes movein {
+  from {
+    right: 2000px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@keyframes movein {
+  from {
+    right: 2000px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@-webkit-keyframes yeet {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes yeet {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.initial-screen {
+  position: relative;
+}
+
+.welcome-title {
+  position: relative;
+  color: white;
+  font-size: 500%;
+  margin-left: 10px;
+  padding: 20px;
+  font-weight: bold;
+  -webkit-animation: movein 1s linear;
+          animation: movein 1s linear;
+  z-index: 2;
+}
+
+.welcome-title-intro-1, .welcome-title-intro-2 {
+  color: white;
+  font-size: 150%;
+  padding: 20px;
+  margin-left: 10px;
+  opacity: 0;
+  -webkit-animation: yeet 2s linear 1s forwards;
+          animation: yeet 2s linear 1s forwards;
+}
+
+.search-cards-bg {
+  background-image: url("../images/search-card-bg.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.recipe-card-bg {
+  background-image: url("../images/recipe-card-bg.jpg");
+  background-size: cover;
+  min-height: 100vh;
 }
 
 @media (min-width: 500px) {
@@ -92,6 +156,8 @@
 }
 
 header {
+  position: relative;
+  z-index: 3;
   background-color: #00A076;
   color: #FFFFFF;
   padding: 20px;

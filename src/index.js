@@ -5,49 +5,37 @@ import { ShowRecipe } from './Components/ShowRecipeClass';
 import { Navigation } from './Components/navClass';
 import './styles/styles.css';
 
-const categories = ['Beef', 'Breakfast', 'Chicken', 'Dessert', 'Goat', 'Lamb', 'Miscellaneous', 'Pasta', 'Pork', 'Seafood', 'Side', 'Starter', 'Vegan', 'Vegetarian'];
-
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainDisplay: null
+            mainDisplay:                 
+                <div className="search-cards-bg">
+                    <p className="welcome-title">Welcome to The Cookbook Reference!</p>
+                    <p className="welcome-title-intro-1">Begin by clicking on any button in the areas or categories section.</p>
+                    <p className="welcome-title-intro-2">A list of recipes will appear and you may select any recipe by clicking the "Get Recipe!" button.</p>
+                </div>
         };
         this.showMeals = this.showMeals.bind(this);
         this.getData = this.getData.bind(this);
         this.showRecipe = this.showRecipe.bind(this);
-        this.showMeals();
     }
 
-    async showMeals(url, wasClicked = false) { 
+    async showMeals(url) { 
         const listMeals = [];
-        if(wasClicked) { //Shows category/area based on button clicked
-            const res = await fetch(url);
-            const data = await res.json();
-            const meals = data.meals; 
-            for(let i = 0, len = meals.length; i < len; i++) {
-                const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
-                const jsonMeal = await searchMeal.json();
-                const meal = jsonMeal.meals[0];
-                listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
-            }
-
-        } else { //Shows random category when page is visited NEWIDEA: just provide instruction to user!
-            const randomCategory = categories[Math.floor(Math.random() * 14)];
-            const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${randomCategory}`);
-            const data = await res.json();
-            const meals = data.meals; 
-            for(let i = 0, len = meals.length; i < len; i++) {
-                const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
-                const jsonMeal = await searchMeal.json();
-                const meal = jsonMeal.meals[0];
-                listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
-            }
+        const res = await fetch(url);
+        const data = await res.json();
+        const meals = data.meals; 
+        for(let i = 0, len = meals.length; i < len; i++) {
+            const searchMeal = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`);
+            const jsonMeal = await searchMeal.json();
+            const meal = jsonMeal.meals[0];
+            listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
         }
-
+     
         this.setState({
             mainDisplay: 
-                <div id="search-cards-bg">
+                <div className="search-cards-bg initial-screen">
                     {listMeals}
                 </div>
             })
@@ -55,7 +43,6 @@ class App extends React.Component {
 
     async getData(e, filter) {
         let baseUrl; 
-        const wasClicked = true;
         if (filter === 'area') {
             baseUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
         } else if (filter === 'cat') {
@@ -66,7 +53,7 @@ class App extends React.Component {
 
         const query = e.target.value;
         const endPoint = baseUrl + query;
-        this.showMeals(endPoint, wasClicked)
+        this.showMeals(endPoint)
     }
 
     showRecipe(meal) {
@@ -77,7 +64,7 @@ class App extends React.Component {
         return (
             <div className="gridded">
                 <Navigation getData={this.getData}/>
-                <div id="recipe-card-bg">
+                <div className="recipe-card-bg">
                     {this.state.mainDisplay}
                 </div>
             </div>

@@ -1,0 +1,9 @@
+.search-cards-bg {
+    @include background-img('../images/search-card-bg.jpg');
+    position: relative;
+    z-index: 1;
+}
+
+.recipe-card-bg {
+    @include background-img('../images/recipe-card-bg.jpg');
+}
