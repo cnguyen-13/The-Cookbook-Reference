@@ -22,4 +22,10 @@ h2.category-list-title, h2.area-list-title {
     padding: 7px;
     border: 1px solid $color-outline-text;
     border-radius: 5px;
+    &:hover {
+        animation-name: highlight;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+    }
 }
+

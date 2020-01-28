@@ -59,11 +59,6 @@ class Categories extends React.Component {
 }
 
 export class Navigation extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {screen: null};
-    }
-
     render() {
         return (
             <header>

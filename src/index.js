@@ -11,7 +11,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            filterList: null
+            mainDisplay: null
         };
         this.showMeals = this.showMeals.bind(this);
         this.getData = this.getData.bind(this);
@@ -32,7 +32,7 @@ class App extends React.Component {
                 listMeals.push(<SearchCards onClickFunc={this.showRecipe} meal={meal} />)
             }
 
-        } else { //Shows random category when page is visited
+        } else { //Shows random category when page is visited NEWIDEA: just provide instruction to user!
             const randomCategory = categories[Math.floor(Math.random() * 14)];
             const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${randomCategory}`);
             const data = await res.json();
@@ -46,15 +46,11 @@ class App extends React.Component {
         }
 
         this.setState({
-            filterList: 
+            mainDisplay: 
                 <div id="search-cards-bg">
                     {listMeals}
                 </div>
             })
-    }
-
-    showRecipe(meal) {
-        this.setState({filterList: <ShowRecipe meal={meal} />});
     }
 
     async getData(e, filter) {
@@ -68,9 +64,13 @@ class App extends React.Component {
             baseUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
         }
 
-        const appendToBase = e.target.value;
-        const endPoint = baseUrl + appendToBase;
+        const query = e.target.value;
+        const endPoint = baseUrl + query;
         this.showMeals(endPoint, wasClicked)
+    }
+
+    showRecipe(meal) {
+        this.setState({mainDisplay: <ShowRecipe meal={meal} />});
     }
 
     render() {
@@ -78,7 +78,7 @@ class App extends React.Component {
             <div className="gridded">
                 <Navigation getData={this.getData}/>
                 <div id="recipe-card-bg">
-                    {this.state.filterList}
+                    {this.state.mainDisplay}
                 </div>
             </div>
         );

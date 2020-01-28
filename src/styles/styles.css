@@ -20,6 +20,24 @@
   min-height: 100vh;
 }
 
+@-webkit-keyframes highlight {
+  from {
+  }
+  to {
+    background-color: #009EDA;
+    padding: 10px;
+  }
+}
+
+@keyframes highlight {
+  from {
+  }
+  to {
+    background-color: #009EDA;
+    padding: 10px;
+  }
+}
+
 @media (min-width: 500px) {
   div.info-card {
     border: 1px solid grey;
@@ -54,6 +72,7 @@
     border: 1px solid grey;
     color: #FFFFFF;
     background-color: #EC3528;
+    font-size: 90%;
     position: absolute;
     cursor: pointer;
     width: 100px;
@@ -61,6 +80,14 @@
     bottom: -20px;
     right: -20px;
     padding: 10px;
+  }
+  div.info-card section.info-card-description button.info-card-button:hover {
+    -webkit-animation-name: highlight;
+            animation-name: highlight;
+    -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
 }
 
@@ -91,6 +118,15 @@ h2.category-list-title, h2.area-list-title {
   padding: 7px;
   border: 1px solid #FFFFFF;
   border-radius: 5px;
+}
+
+.area-button:hover, .category-button:hover {
+  -webkit-animation-name: highlight;
+          animation-name: highlight;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @media (min-width: 500px) {
