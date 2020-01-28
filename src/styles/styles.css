@@ -44,7 +44,7 @@
   }
 }
 
-@-webkit-keyframes yeet {
+@-webkit-keyframes fadein {
   from {
     opacity: 0;
   }
@@ -53,7 +53,7 @@
   }
 }
 
-@keyframes yeet {
+@keyframes fadein {
   from {
     opacity: 0;
   }
@@ -78,14 +78,14 @@
   z-index: 2;
 }
 
-.welcome-title-intro-1, .welcome-title-intro-2 {
+.welcome-title-intro {
   color: white;
   font-size: 150%;
   padding: 20px;
   margin-left: 10px;
   opacity: 0;
-  -webkit-animation: yeet 2s linear 1s forwards;
-          animation: yeet 2s linear 1s forwards;
+  -webkit-animation: fadein 2s linear 1s forwards;
+          animation: fadein 2s linear 1s forwards;
 }
 
 .search-cards-bg {

@@ -14,11 +14,11 @@
     
 }
 
-.welcome-title-intro-1, .welcome-title-intro-2 {
+.welcome-title-intro {
     color: white;
     font-size: 150%;
     padding: 20px;
     margin-left: 10px;
     opacity: 0;
-    animation: yeet 2s linear 1s forwards;
+    animation: fadein 2s linear 1s forwards;
 }
