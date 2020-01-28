@@ -5,17 +5,25 @@ import { ShowRecipe } from './Components/ShowRecipeClass';
 import { Navigation } from './Components/navClass';
 import './styles/styles.css';
 
+class WelcomeMessage extends React.Component {
+    render() {
+        return (
+            <div className="search-cards-bg">
+                <p className="welcome-title">Welcome to The Cookbook Reference!</p>
+                <p className="welcome-title-intro-1">Begin by clicking on any button in the areas or categories section.</p>
+                <p className="welcome-title-intro-2">A list of recipes will appear and you may select any recipe by clicking the "Get Recipe!" button.</p>
+            </div>
+        );
+    }
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             mainDisplay:                 
-                <div className="search-cards-bg">
-                    <p className="welcome-title">Welcome to The Cookbook Reference!</p>
-                    <p className="welcome-title-intro-1">Begin by clicking on any button in the areas or categories section.</p>
-                    <p className="welcome-title-intro-2">A list of recipes will appear and you may select any recipe by clicking the "Get Recipe!" button.</p>
-                </div>
-        };
+                <WelcomeMessage />
+            };
         this.showMeals = this.showMeals.bind(this);
         this.getData = this.getData.bind(this);
         this.showRecipe = this.showRecipe.bind(this);
@@ -35,7 +43,7 @@ class App extends React.Component {
      
         this.setState({
             mainDisplay: 
-                <div className="search-cards-bg initial-screen">
+                <div className="search-cards-bg">
                     {listMeals}
                 </div>
             })
