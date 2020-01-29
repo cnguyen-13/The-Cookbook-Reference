@@ -13,11 +13,13 @@ header {
     }
 }
 
-h2.category-list-title, h2.area-list-title {
+h2.category-list-title,
+h2.area-list-title {
     margin: 5px;
 }
 
-.area-button, .category-button {
+.area-button,
+.category-button {
     @include button-colors;
     cursor: pointer;
     margin: 5px;
@@ -26,8 +28,7 @@ h2.category-list-title, h2.area-list-title {
     border-radius: 5px;
     &:hover {
         animation-name: highlight;
-        animation-duration: .5s;
+        animation-duration: 0.5s;
         animation-fill-mode: forwards;
     }
 }
-

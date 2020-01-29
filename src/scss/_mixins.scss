@@ -1,6 +1,6 @@
 @mixin recipe-card-section {
-    background-color: white;
-    border: 1px solid white;
+    background-color: $color-recipe-card-bg;
+    border: 1px solid $color-recipe-card-bg;
     border-radius: 10px;
     opacity: 0.95;
     padding: 10px;
@@ -10,6 +10,7 @@
     background-image: url($url);
     background-size: cover;
     min-height: 100vh;
+    height: 100%;
 }
 
 @mixin small-icon-before($url) {

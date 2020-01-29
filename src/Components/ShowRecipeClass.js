@@ -1,37 +1,41 @@
-import React from 'react';
+import React from "react";
 
 export class ShowRecipe extends React.Component {
     constructor(props) {
         super(props);
-        this.ingredientsWithMeasurements = null;
-        this.instructions = null;
+        this.ingredList = null;
+        this.instructionList = null;
         this.createIngredList = this.createIngredList.bind(this);
         this.parseInstructions = this.parseInstructions.bind(this);
         this.createIngredList();
         this.parseInstructions();
-    }   
+    }
 
     createIngredList() {
         //Creates ingred list
-        const str = 'strIngredient';
-        let counter = 1;
-        const lists = [];
-        while(this.props.meal[`${str + counter}`] !== '') {
-            lists.push([this.props.meal[`strMeasure${counter}`], this.props.meal[`${str + counter}`]])
-            counter++;
+        const propertyBase = "strIngredient";
+        let ingredNum = 1;
+        const listOfIngreds = [];
+        while (this.props.meal[`${propertyBase + ingredNum}`] !== "") {
+            listOfIngreds.push([
+                this.props.meal[`strMeasure${ingredNum}`],
+                this.props.meal[`${propertyBase + ingredNum}`]
+            ]);
+            ingredNum++;
         }
 
-        this.ingredientsWithMeasurements = lists.map(item => {
-            return <li key={item[1]}>{`${item[0]} - ${item[1]}`}</li>
-        })
+        this.ingredList = listOfIngreds.map(pair => {
+            //Each pair is a measurement, ingred pair ex. ['100mL', 'water']
+            return <li key={pair[1]}>{`${pair[0]} - ${pair[1]}`}</li>;
+        });
     }
 
     parseInstructions() {
-        //Creates instructions
-        const steps = this.props.meal['strInstructions'].split('.');
+        //Creates instructionList
+        const steps = this.props.meal["strInstructions"].split(".");
         steps.pop();
-        this.instructions = steps.map(instruction => {
-            return <li key={instruction}>{instruction}.</li>  
+        this.instructionList = steps.map(step => {
+            return <li key={step}>{step}.</li>;
         });
     }
 
@@ -39,26 +43,37 @@ export class ShowRecipe extends React.Component {
         return (
             <div className="recipe-card">
                 <section className="recipe-card-details">
-                    <h2 className="recipe-card-title">{this.props.meal.strMeal}</h2>
-                    <small>{this.props.meal.strArea}, {this.props.meal.strCategory}</small>
+                    <h2 className="recipe-card-title">
+                        {this.props.meal.strMeal}
+                    </h2>
+                    <small>
+                        {this.props.meal.strArea}, {this.props.meal.strCategory}
+                    </small>
                 </section>
-                
+
                 <section className="recipe-card-ingredients">
-                    <div> 
-                        <h3 className="recipe-card-ingredients-title">Ingredients</h3>
+                    <div>
+                        <h3 className="recipe-card-ingredients-title">
+                            Ingredients
+                        </h3>
                         <ul className="recipe-card-ingredients-list">
-                            {this.ingredientsWithMeasurements}
-                        </ul>      
-                        <img className="recipe-card-ingredients-image" src={this.props.meal.strMealThumb} />                   
+                            {this.ingredList}
+                        </ul>
+                        <img
+                            className="recipe-card-ingredients-image"
+                            src={this.props.meal.strMealThumb}
+                        />
                     </div>
                 </section>
 
                 <section className="recipe-card-instructions">
                     <div>
-                        <h3 className="recipe-card-instructions-title">Instructions</h3>
+                        <h3 className="recipe-card-instructions-title">
+                            Instructions
+                        </h3>
                         <ol className="recipe-card-instructions-list">
-                            {this.instructions}
-                        </ol>                       
+                            {this.instructionList}
+                        </ol>
                     </div>
                 </section>
             </div>

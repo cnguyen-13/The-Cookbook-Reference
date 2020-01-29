@@ -12,7 +12,7 @@
   from {
   }
   to {
-    background-color: #009EDA;
+    background-color: #009eda;
     padding: 10px;
   }
 }
@@ -21,7 +21,7 @@
   from {
   }
   to {
-    background-color: #009EDA;
+    background-color: #009eda;
     padding: 10px;
   }
 }
@@ -68,24 +68,31 @@
 
 .welcome-title {
   position: relative;
-  color: white;
+  color: black;
   font-size: 500%;
   margin-left: 10px;
   padding: 20px;
   font-weight: bold;
-  -webkit-animation: movein 1s linear;
-          animation: movein 1s linear;
+  -webkit-animation: movein 1s ease-out;
+          animation: movein 1s ease-out;
   z-index: 2;
 }
 
 .welcome-title-intro {
-  color: white;
+  color: black;
   font-size: 150%;
   padding: 20px;
   margin-left: 10px;
   opacity: 0;
-  -webkit-animation: fadein 2s linear 1s forwards;
-          animation: fadein 2s linear 1s forwards;
+  -webkit-animation: fadein 2s ease-out 1s forwards;
+          animation: fadein 2s ease-out 1s forwards;
+}
+
+.welcome-bg {
+  background-image: url("../images/welcome-bg.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .search-cards-bg {
@@ -98,70 +105,74 @@
 }
 
 .recipe-card-bg {
-  height: 100%;
   background-image: url("../images/recipe-card-bg.jpg");
   background-size: cover;
   min-height: 100vh;
+  height: 100%;
 }
 
-@media (min-width: 500px) {
-  div.info-card {
-    border: 1px solid grey;
-    width: 400px;
-    word-wrap: break-word;
-    margin: 20px;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-  }
-  div.info-card img.info-card-image {
-    width: 175px;
-    height: 175px;
-  }
-  div.info-card section.info-card-description {
-    width: 223px;
-    position: relative;
-    background-color: #FFFFFF;
-  }
-  div.info-card section.info-card-description h2.info-card-title {
-    padding: 10px;
-    background-color: #00A076;
-    color: #FFFFFF;
-    font-size: 16px;
-    text-align: center;
-  }
-  div.info-card section.info-card-description p.info-card-category, div.info-card section.info-card-description p.info-card-area, div.info-card section.info-card-description p.info-card-tags {
-    padding: 3px 10px;
-    font-size: 14px;
-  }
-  div.info-card section.info-card-description button.info-card-button {
-    border: 1px solid grey;
-    color: #FFFFFF;
-    background-color: #EC3528;
-    font-size: 90%;
-    position: absolute;
-    cursor: pointer;
-    width: 100px;
-    height: 50px;
-    bottom: -20px;
-    right: -20px;
-    padding: 10px;
-  }
-  div.info-card section.info-card-description button.info-card-button:hover {
-    -webkit-animation-name: highlight;
-            animation-name: highlight;
-    -webkit-animation-duration: 0.3s;
-            animation-duration: 0.3s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-  }
+div.search-card {
+  border: 1px solid grey;
+  width: 400px;
+  word-wrap: break-word;
+  margin: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+div.search-card img.search-card-image {
+  width: 175px;
+  height: 175px;
+}
+
+div.search-card section.search-card-description {
+  width: 223px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+div.search-card section.search-card-description h2.search-card-title {
+  padding: 10px;
+  background-color: #0d2432;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+div.search-card section.search-card-description p.search-card-info {
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+div.search-card section.search-card-description button.search-card-button {
+  border: 1px solid grey;
+  color: #ffffff;
+  background-color: #ec3528;
+  font-size: 90%;
+  position: absolute;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  bottom: -20px;
+  right: -20px;
+  padding: 10px;
+}
+
+div.search-card section.search-card-description button.search-card-button:hover {
+  -webkit-animation-name: highlight;
+          animation-name: highlight;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 header {
   position: relative;
   z-index: 3;
-  background-color: #00A076;
-  color: #FFFFFF;
+  background-color: #0d2432;
+  color: #ffffff;
   padding: 20px;
 }
 
@@ -174,75 +185,85 @@ header h1 span.initials {
   font-family: "Bungee Shade", cursive;
 }
 
-h2.category-list-title, h2.area-list-title {
+h2.category-list-title,
+h2.area-list-title {
   margin: 5px;
 }
 
-.area-button, .category-button {
-  color: #FFFFFF;
-  background-color: #EC3528;
+.area-button,
+.category-button {
+  color: #ffffff;
+  background-color: #ec3528;
   cursor: pointer;
   margin: 5px;
   padding: 7px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 5px;
 }
 
-.area-button:hover, .category-button:hover {
+.area-button:hover,
+.category-button:hover {
   -webkit-animation-name: highlight;
           animation-name: highlight;
-  -webkit-animation-duration: .5s;
-          animation-duration: .5s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
-@media (min-width: 500px) {
-  div.recipe-card .recipe-card-details {
-    font-size: 125%;
-    padding: 10px;
-    text-align: center;
-    background-color: #FFFFFF;
-  }
-  div.recipe-card .recipe-card-ingredients, div.recipe-card .recipe-card-instructions {
-    padding: 20px;
-  }
-  div.recipe-card .recipe-card-ingredients div {
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 10px;
-    opacity: 0.95;
-    padding: 10px;
-  }
-  div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title {
-    text-decoration: underline;
-  }
-  div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title::before {
-    content: url("../images/groceries.png");
-    margin-right: 10px;
-  }
-  div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-image {
-    border-radius: 10px;
-    display: block;
-    opacity: 1;
-    margin: 20px auto;
-    width: 95%;
-    height: width;
-  }
-  div.recipe-card .recipe-card-instructions div {
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 10px;
-    opacity: 0.95;
-    padding: 10px;
-  }
-  div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title {
-    text-decoration: underline;
-  }
-  div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title::before {
-    content: url("../images/book.png");
-    margin-right: 10px;
-  }
+div.recipe-card .recipe-card-details {
+  font-size: 125%;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+div.recipe-card .recipe-card-ingredients,
+div.recipe-card .recipe-card-instructions {
+  padding: 20px;
+}
+
+div.recipe-card .recipe-card-ingredients div {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  opacity: 0.95;
+  padding: 10px;
+}
+
+div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title {
+  text-decoration: underline;
+}
+
+div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-title::before {
+  content: url("../images/groceries.png");
+  margin-right: 10px;
+}
+
+div.recipe-card .recipe-card-ingredients div .recipe-card-ingredients-image {
+  border-radius: 10px;
+  display: block;
+  opacity: 1;
+  margin: 20px auto;
+  width: 95%;
+  height: width;
+}
+
+div.recipe-card .recipe-card-instructions div {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  opacity: 0.95;
+  padding: 10px;
+}
+
+div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title {
+  text-decoration: underline;
+}
+
+div.recipe-card .recipe-card-instructions div .recipe-card-instructions-title::before {
+  content: url("../images/book.png");
+  margin-right: 10px;
 }
 
 @media (min-width: 1100px) {
@@ -269,7 +290,8 @@ h2.category-list-title, h2.area-list-title {
   }
 }
 
-ul li, ol li {
+ul li,
+ol li {
   margin-left: 50px;
   margin-top: 10px;
 }

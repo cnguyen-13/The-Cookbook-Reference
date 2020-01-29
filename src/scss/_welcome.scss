@@ -4,21 +4,20 @@
 
 .welcome-title {
     position: relative;
-    color: white;
+    color: black;
     font-size: 500%;
     margin-left: 10px;
     padding: 20px;
     font-weight: bold;
-    animation: movein 1s linear;
+    animation: movein 1s ease-out;
     z-index: 2;
-    
 }
 
 .welcome-title-intro {
-    color: white;
+    color: black;
     font-size: 150%;
     padding: 20px;
     margin-left: 10px;
     opacity: 0;
-    animation: fadein 2s linear 1s forwards;
+    animation: fadein 2s ease-out 1s forwards;
 }
