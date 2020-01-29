@@ -62,6 +62,7 @@ export class ShowRecipe extends React.Component {
                         <img
                             className="recipe-card-ingredients-image"
                             src={this.props.meal.strMealThumb}
+                            alt={this.props.meal.strMeal}
                         />
                     </div>
                 </section>
