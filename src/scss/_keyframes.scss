@@ -1,0 +1,26 @@
+@keyframes highlight {
+    from {
+    }
+    to {
+        background-color: $color-highlight;
+        padding: 10px;
+    }
+}
+
+@keyframes movein {
+    from {
+        right: 2000px;
+    }
+    to {
+        right: 0px;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

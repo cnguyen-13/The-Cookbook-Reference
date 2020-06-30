@@ -1,0 +1,72 @@
+div.recipe-card {
+    .recipe-card-details {
+        font-size: 125%;
+        padding: 10px;
+        text-align: center;
+        background-color: $color-recipe-card-bg;
+    }
+
+    .recipe-card-ingredients,
+    .recipe-card-instructions {
+        padding: 20px;
+    }
+
+    .recipe-card-ingredients {
+        div {
+            @include recipe-card-section;
+            .recipe-card-ingredients-title {
+                text-decoration: underline;
+                &::before {
+                    @include small-icon-before("../images/groceries.png");
+                }
+            }
+
+            .recipe-card-ingredients-image {
+                border-radius: 10px;
+                display: block;
+                opacity: 1;
+                margin: 20px auto;
+                width: 95%;
+                height: width;
+            }
+        }
+    }
+
+    .recipe-card-instructions {
+        div {
+            @include recipe-card-section;
+
+            .recipe-card-instructions-title {
+                text-decoration: underline;
+                &::before {
+                    @include small-icon-before("../images/book.png");
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+    div.recipe-card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        .recipe-card-details {
+            grid-column: 1 / span 2;
+        }
+
+        .recipe-card-ingredients {
+            grid-column: 1 / span 1;
+        }
+
+        .recipe-card-instructions {
+            grid-column: 2 / span 1;
+        }
+    }
+}
+
+//Lists
+ul li,
+ol li {
+    margin-left: 50px;
+    margin-top: 10px;
+}

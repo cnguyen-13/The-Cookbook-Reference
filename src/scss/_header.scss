@@ -1,0 +1,34 @@
+header {
+    position: relative;
+    z-index: 3;
+    background-color: $color-primary;
+    color: $color-outline-text;
+    padding: 20px;
+    h1 {
+        padding-top: 10px;
+        text-align: center;
+        span.initials {
+            font-family: $font-logo;
+        }
+    }
+}
+
+h2.category-list-title,
+h2.area-list-title {
+    margin: 5px;
+}
+
+.area-button,
+.category-button {
+    @include button-colors;
+    cursor: pointer;
+    margin: 5px;
+    padding: 7px;
+    border: 1px solid $color-outline-text;
+    border-radius: 5px;
+    &:hover {
+        animation-name: highlight;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
