@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { SearchCard } from "./Components/searchCardClass";
 import { ShowRecipe } from "./Components/ShowRecipeClass";
-import { Header } from "./Components/navClass";
+import Lists from "./Components/Lists/Lists";
 import "./styles/styles.css";
 
 class WelcomeMessage extends React.Component {
@@ -35,7 +35,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainDisplay: <WelcomeMessage />
+            mainDisplay: <WelcomeMessage />,
         };
         this.showMeals = this.showMeals.bind(this);
         this.createEndPoint = this.createEndPoint.bind(this);
@@ -52,6 +52,7 @@ class App extends React.Component {
                 `https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`
             );
             const jsonMeal = await searchMeal.json();
+            console.log(jsonMeal);
             const meal = jsonMeal.meals[0];
             listMeals.push(
                 <SearchCard onClickFunc={this.showRecipe} meal={meal} />
@@ -59,7 +60,7 @@ class App extends React.Component {
         }
 
         this.setState({
-            mainDisplay: <div className="search-cards-bg">{listMeals}</div>
+            mainDisplay: <div className="search-cards-bg">{listMeals}</div>,
         });
     }
 
@@ -85,7 +86,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="gridded">
-                <Header createEndPoint={this.createEndPoint} />
+                <Lists createEndPoint={this.createEndPoint} />
                 <MainDisplay mainDisplay={this.state.mainDisplay} />
             </div>
         );
