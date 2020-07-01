@@ -1,6 +1,6 @@
 import React from "react";
 
-export class ShowRecipe extends React.Component {
+export default class Recipe extends React.Component {
     constructor(props) {
         super(props);
         this.ingredList = null;
@@ -19,12 +19,12 @@ export class ShowRecipe extends React.Component {
         while (this.props.meal[`${propertyBase + ingredNum}`] !== "") {
             listOfIngreds.push([
                 this.props.meal[`strMeasure${ingredNum}`],
-                this.props.meal[`${propertyBase + ingredNum}`]
+                this.props.meal[`${propertyBase + ingredNum}`],
             ]);
             ingredNum++;
         }
 
-        this.ingredList = listOfIngreds.map(pair => {
+        this.ingredList = listOfIngreds.map((pair) => {
             //Each pair is a measurement, ingred pair ex. ['100mL', 'water']
             return <li key={pair[1]}>{`${pair[0]} - ${pair[1]}`}</li>;
         });
@@ -34,7 +34,7 @@ export class ShowRecipe extends React.Component {
         //Creates instructionList
         const steps = this.props.meal["strInstructions"].split(".");
         steps.pop();
-        this.instructionList = steps.map(step => {
+        this.instructionList = steps.map((step) => {
             return <li key={step}>{step}.</li>;
         });
     }
