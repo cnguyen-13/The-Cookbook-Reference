@@ -8,7 +8,7 @@ export default function RecipeCardDescription({
     mealTags,
     onClickFunc,
 }) {
-    const { categoryOrArea } = useParams();
+    const { categoryOrArea } = useParams(); //IS this needed??????????????
     return (
         <section className="search-card-description">
             <h2 className="search-card-title">{mealName}</h2>
