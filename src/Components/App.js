@@ -19,7 +19,7 @@ export default function App() {
             );
             const jsonMeal = await searchMeal.json();
             const meal = jsonMeal.meals[0];
-            listMeals.push(<RecipeCard onClickFunc={showRecipe} meal={meal} />);
+            listMeals.push(<RecipeCard meal={meal} onClickFunc={showRecipe} />);
         }
         setMainDisplay(<div className="search-cards-bg">{listMeals}</div>);
     }
