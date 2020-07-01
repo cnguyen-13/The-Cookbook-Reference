@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Lists from "./Lists/Lists";
 import RecipeCard from "./RecipeCard/RecipeCard";
 import MainDisplay from "./MainDisplay";
-import WelcomeMessage from "./WelcomeMessage";
 import Recipe from "./Recipe/Recipe";
+import RecipeList from "./RecipeList";
+import { Route, Switch, Link, useParams } from "react-router-dom";
 
 export default function App() {
-    const [mainDisplay, setMainDisplay] = useState(<WelcomeMessage />);
+    const [mainDisplay, setMainDisplay] = useState(null);
 
     async function showMeals(url) {
         const listMeals = [];
@@ -21,7 +22,8 @@ export default function App() {
             const meal = jsonMeal.meals[0];
             listMeals.push(<RecipeCard meal={meal} onClickFunc={showRecipe} />);
         }
-        setMainDisplay(<div className="search-cards-bg">{listMeals}</div>);
+
+        setMainDisplay(<RecipeList list={listMeals} />);
     }
 
     function createEndPoint(e, queryBasedOn) {
@@ -47,8 +49,9 @@ export default function App() {
         <div className="gridded">
             <Lists createEndPoint={createEndPoint} />
             {
-                //ROUTES HERE}}
+                //ROUTES HERE}} SWITCH
             }
+
             <MainDisplay mainDisplay={mainDisplay} />
         </div>
     );
