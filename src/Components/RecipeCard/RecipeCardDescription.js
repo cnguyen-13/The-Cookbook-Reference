@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
 
 export default function RecipeCardDescription({
     mealName,
@@ -15,9 +16,11 @@ export default function RecipeCardDescription({
             <p className="search-card-info">
                 {mealTags ? mealTags : "No Tags"}
             </p>
-            <button className="search-card-button" onClick={onClickFunc}>
-                Get Recipe!
-            </button>
+            <Link to={`/${mealName}`}>
+                <button className="search-card-button" onClick={onClickFunc}>
+                    Get Recipe!
+                </button>
+            </Link>
         </section>
     );
 }

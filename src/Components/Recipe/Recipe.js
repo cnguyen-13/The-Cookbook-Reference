@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import RecipeHeader from "./RecipeHeader";
+import RecipeIngredients from "./RecipeIngredients.js";
+import RecipeInstructions from "./RecipeInstructions";
 
 export default function Recipe({ meal }) {
     const [ingredList, setIngredList] = useState(null);
     const [instructionList, setInstructionList] = useState(null);
-    console.log(meal);
+    const mealName = meal.strMeal;
+    const mealArea = meal.strArea;
+    const mealCategory = meal.strCategory;
+    const mealImageUrl = meal.strMealThumb;
+
     useEffect(() => {
         function createIngredList() {
             //Creates ingred list
@@ -11,7 +18,6 @@ export default function Recipe({ meal }) {
             let ingredNum = 1;
             const listOfIngreds = [];
             while (meal[`${propertyBase + ingredNum}`]) {
-                //null CHECK FOR NULL INIFINITE LOOP, GET THE LIST THO
                 listOfIngreds.push([
                     meal[`strMeasure${ingredNum}`],
                     meal[`${propertyBase + ingredNum}`],
@@ -41,39 +47,18 @@ export default function Recipe({ meal }) {
 
     return (
         <div className="recipe-card">
-            <section className="recipe-card-details">
-                <h2 className="recipe-card-title">{meal.strMeal}</h2>
-                <small>
-                    {meal.strArea}, {meal.strCategory}
-                </small>
-            </section>
+            <RecipeHeader
+                mealName={mealName}
+                mealArea={mealArea}
+                mealCategory={mealCategory}
+            />
+            <RecipeIngredients
+                ingredients={ingredList}
+                src={mealImageUrl}
+                alt={mealName}
+            />
 
-            <section className="recipe-card-ingredients">
-                <div>
-                    <h3 className="recipe-card-ingredients-title">
-                        Ingredients
-                    </h3>
-                    <ul className="recipe-card-ingredients-list">
-                        {ingredList}
-                    </ul>
-                    <img
-                        className="recipe-card-ingredients-image"
-                        src={meal.strMealThumb}
-                        alt={meal.strMeal}
-                    />
-                </div>
-            </section>
-
-            <section className="recipe-card-instructions">
-                <div>
-                    <h3 className="recipe-card-instructions-title">
-                        Instructions
-                    </h3>
-                    <ol className="recipe-card-instructions-list">
-                        {instructionList}
-                    </ol>
-                </div>
-            </section>
+            <RecipeInstructions instructions={instructionList} />
         </div>
     );
 }

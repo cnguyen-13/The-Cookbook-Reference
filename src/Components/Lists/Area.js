@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route, Link } from "react-router-dom";
 
 export default function Area({ createEndPoint }) {
     const [areaList, setAreaList] = useState([]);
@@ -26,13 +27,15 @@ export default function Area({ createEndPoint }) {
         <div id="area-list">
             {areaList.map((area) => {
                 return (
-                    <button
-                        className="area-button"
-                        onClick={createEndPointArea}
-                        value={area}
-                    >
-                        {area}
-                    </button>
+                    <Link to={`/${area}`}>
+                        <button
+                            className="area-button"
+                            onClick={createEndPointArea}
+                            value={area}
+                        >
+                            {area}
+                        </button>
+                    </Link>
                 );
             })}
         </div>

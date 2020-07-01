@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route, Link } from "react-router-dom";
 
 export default function Category({ createEndPoint }) {
     const [categoryList, setCategoryList] = useState([]);
@@ -26,13 +27,15 @@ export default function Category({ createEndPoint }) {
         <div id="category-list">
             {categoryList.map((category) => {
                 return (
-                    <button
-                        className="category-button"
-                        onClick={createEndPointCategory}
-                        value={category}
-                    >
-                        {category}
-                    </button>
+                    <Link to={`/${category}`}>
+                        <button
+                            className="category-button"
+                            onClick={createEndPointCategory}
+                            value={category}
+                        >
+                            {category}
+                        </button>
+                    </Link>
                 );
             })}
         </div>
