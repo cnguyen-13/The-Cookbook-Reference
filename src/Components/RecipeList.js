@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard/RecipeCard";
 import { useParams } from "react-router-dom";
-export default function RecipeList({ endpoint, showRecipe }) {
-    const { category, choice } = useParams();
+export default function RecipeList({ showRecipe, categoryList, areaList }) {
+    const { categoryParam } = useParams();
     const [mealsData, setMealsData] = useState(null);
-    //Move these functions to RecipeList component, then use useParams, then ROUTE to that page
 
+    function createEndPoint() {
+        let baseUrl;
+        if (areaList.includes(categoryParam)) {
+            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
+        } else if (categoryList.includes(categoryParam)) {
+            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+        } else {
+            baseUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+        }
+
+        const endPoint = baseUrl + categoryParam;
+        return endPoint;
+    }
     useEffect(() => {
         //Creates Cards
-        async function showMeals(url) {
+        async function showMeals() {
+            const url = createEndPoint();
+            console.log(url);
             const listMeals = [];
             const res = await fetch(url);
             const data = await res.json();
@@ -27,12 +41,12 @@ export default function RecipeList({ endpoint, showRecipe }) {
             setMealsData(listMeals);
         }
 
-        showMeals(endpoint);
-    });
+        showMeals();
+    }, [categoryParam]);
 
     return (
         <div>
-            <h2>Meals for {endpoint}</h2>
+            <h2>Meals for {createEndPoint()}</h2>
             {mealsData}
         </div>
     );

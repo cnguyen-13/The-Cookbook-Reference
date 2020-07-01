@@ -6,13 +6,42 @@ import Recipe from "./Recipe/Recipe";
 import RecipeList from "./RecipeList";
 import { Route, Switch, Link, useParams } from "react-router-dom";
 
+//I should pass :category as the search query for async get Datas lol
 export default function App() {
     const { category, choice } = useParams();
     //Break away from the MAINDISPLAY THING, its confusing, just have separate components, it might make routing EASIER
     const [mealsData, setMealsData] = useState(null);
     const [recipeData, setRecipeData] = useState(null);
-    const [endPoint, setEndPoint] = useState(null);
+    const [endPoint, setEndPoint] = useState(null); //GET RID OF
+    const [categoryList, setCategoryList] = useState([]);
+    const [areaList, setAreaList] = useState([]);
     //Move these functions to RecipeList component, then use useParams, then ROUTE to that page
+    useEffect(() => {
+        async function getCategoryList() {
+            const res = await fetch(
+                "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
+            );
+            const data = await res.json();
+            const categoryList = data.meals.map((object) => {
+                return object.strCategory;
+            });
+            setCategoryList(categoryList);
+        }
+
+        async function getAreaList() {
+            const res = await fetch(
+                "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
+            );
+            const data = await res.json();
+            const areaList = data.meals.map((object) => {
+                return object.strArea;
+            });
+            setAreaList(areaList);
+        }
+        getCategoryList();
+        getAreaList();
+    }, []);
+
     function createEndPoint(e, queryBasedOn) {
         let baseUrl;
         if (queryBasedOn === "area") {
@@ -28,40 +57,27 @@ export default function App() {
         setEndPoint(endPoint);
     }
 
-    // async function showMeals(url) {
-    //     const listMeals = [];
-    //     const res = await fetch(url);
-    //     const data = await res.json();
-    //     const meals = data.meals;
-    //     for (let i = 0, len = meals.length; i < len; i++) {
-    //         const searchMeal = await fetch(
-    //             `https://www.themealdb.com/api/json/v1/1/search.php?s=${meals[i].strMeal}`
-    //         );
-    //         const jsonMeal = await searchMeal.json();
-    //         const meal = jsonMeal.meals[0];
-    //         listMeals.push(<RecipeCard meal={meal} onClickFunc={showRecipe} />);
-    //     }
-
-    //     setMealsData(<RecipeList list={listMeals} />);
-    // }
-
     function showRecipe(meal) {
         setRecipeData(meal);
     }
 
     return (
         <div className="gridded">
-            <Lists createEndPoint={createEndPoint} />
-            {
-                //ROUTES HERE}} SWITCH
-                //Its is either showMeals or showRecipe
-            }
+            <Lists
+                createEndPoint={createEndPoint}
+                categoryList={categoryList}
+                areaList={areaList}
+            />
             <Switch>
-                <Route path={`/:category/:choice`}>
+                <Route path={`/:categoryParam/:choice`}>
                     <Recipe meal={recipeData} />
                 </Route>
-                <Route path={`/:category`}>
-                    <RecipeList endpoint={endPoint} showRecipe={showRecipe} />
+                <Route path={`/:categoryParam`}>
+                    <RecipeList
+                        showRecipe={showRecipe}
+                        categoryList={categoryList}
+                        areaList={areaList}
+                    />
                 </Route>
                 <Route exact path={`/`}></Route>
                 {
@@ -71,17 +87,3 @@ export default function App() {
         </div>
     );
 }
-
-//Two states
-/**
- * Meals
- * Recipe
- *
- * if Recipe // localhost/category/recipe
- *   -Show Recipe over Meals
- * else // localhost && localhost/cate
- *   -Show Meals
- *
- *
- *
- */
