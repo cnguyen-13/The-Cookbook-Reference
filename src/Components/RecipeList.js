@@ -5,6 +5,7 @@ export default function RecipeList({ areaList, randomize = false }) {
     const { categoryParam } = useParams();
     const [mealsData, setMealsData] = useState(null);
     const [randomArea, setRandomArea] = useState(null);
+
     useEffect(() => {
         function createEndPoint() {
             let endPoint;
@@ -27,16 +28,15 @@ export default function RecipeList({ areaList, randomize = false }) {
 
         //Creates Cards
         async function showMeals() {
-            const url = createEndPoint();
             const listMeals = [];
+            const url = createEndPoint();
             const res = await fetch(url);
             const data = await res.json();
             const meals = data.meals;
+            const mealBaseUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
             for (let i = 0; i < meals.length; i++) {
                 const recipeName = meals[i].strMeal;
-                const searchMeal = await fetch(
-                    `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipeName}`
-                );
+                const searchMeal = await fetch(`${mealBaseUrl}${recipeName}`);
                 const jsonMeal = await searchMeal.json();
                 const meal = jsonMeal.meals[0];
                 listMeals.push(<RecipeCard meal={meal} key={recipeName} />);
@@ -52,7 +52,7 @@ export default function RecipeList({ areaList, randomize = false }) {
         <div>
             <h2>
                 {randomize
-                    ? `Enjoy Some ${randomArea} Recipes!`
+                    ? `Enjoy Some ${randomArea} Recipes Today!`
                     : `${categoryParam} Recipes!`}
             </h2>
             {mealsData}

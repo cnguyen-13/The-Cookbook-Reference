@@ -32,6 +32,7 @@ export default function App() {
             });
             setAreaList(areaList);
         }
+
         getCategoryList();
         getAreaList();
     }, []);
