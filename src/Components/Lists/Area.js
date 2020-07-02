@@ -6,7 +6,7 @@ export default function Area({ list }) {
         <div id="area-list">
             {list.map((area) => {
                 return (
-                    <Link to={`/${area}`}>
+                    <Link to={`/${area}`} key={area}>
                         <button className="area-button" value={area}>
                             {area}
                         </button>

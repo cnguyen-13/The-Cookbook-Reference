@@ -6,7 +6,7 @@ export default function Category({ list }) {
         <div id="category-list">
             {list.map((category) => {
                 return (
-                    <Link to={`/${category}`}>
+                    <Link to={`/${category}`} key={category}>
                         <button className="category-button" value={category}>
                             {category}
                         </button>
