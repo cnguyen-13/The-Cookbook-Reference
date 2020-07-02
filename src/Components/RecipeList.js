@@ -5,6 +5,7 @@ export default function RecipeList({ areaList, randomize = false }) {
     const { categoryParam } = useParams();
     const [mealsData, setMealsData] = useState(null);
     const [randomArea, setRandomArea] = useState(null);
+    const [notFoundMessage, setNotFoundMessage] = useState("");
 
     useEffect(() => {
         function createEndPoint() {
@@ -28,21 +29,29 @@ export default function RecipeList({ areaList, randomize = false }) {
 
         //Creates Cards
         async function showMeals() {
-            const listMeals = [];
-            const url = createEndPoint();
-            const res = await fetch(url);
-            const data = await res.json();
-            const meals = data.meals;
-            const mealBaseUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
-            for (let i = 0; i < meals.length; i++) {
-                const recipeName = meals[i].strMeal;
-                const searchMeal = await fetch(`${mealBaseUrl}${recipeName}`);
-                const jsonMeal = await searchMeal.json();
-                const meal = jsonMeal.meals[0];
-                listMeals.push(<RecipeCard meal={meal} key={recipeName} />);
-            }
+            try {
+                const listMeals = [];
+                const url = createEndPoint();
+                const res = await fetch(url);
+                const data = await res.json();
+                const meals = data.meals;
+                const mealBaseUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
+                for (let i = 0; i < meals.length; i++) {
+                    const recipeName = meals[i].strMeal;
+                    const searchMeal = await fetch(
+                        `${mealBaseUrl}${recipeName}`
+                    );
+                    const jsonMeal = await searchMeal.json();
+                    const meal = jsonMeal.meals[0];
+                    listMeals.push(<RecipeCard meal={meal} key={recipeName} />);
+                }
 
-            setMealsData(listMeals);
+                setMealsData(listMeals);
+            } catch (err) {
+                setNotFoundMessage(
+                    `${categoryParam} recipes can not be found on TCR!`
+                );
+            }
         }
 
         showMeals();
@@ -55,7 +64,11 @@ export default function RecipeList({ areaList, randomize = false }) {
                     ? `Enjoy Some ${randomArea} Recipes Today!`
                     : `${categoryParam} Recipes!`}
             </h2>
-            {mealsData}
+            {mealsData ? (
+                mealsData
+            ) : (
+                <p className="not-found-message">{notFoundMessage}</p>
+            )}
         </div>
     );
 }

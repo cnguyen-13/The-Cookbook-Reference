@@ -10,6 +10,7 @@ export default function Recipe() {
     const [recipeDetails, setRecipeDetails] = useState(null);
     const [ingredList, setIngredList] = useState(null);
     const [instructionList, setInstructionList] = useState(null);
+    const [recipeNotFoundMessage, setRecipeNotFoundMessage] = useState("");
     const [mealName, setMealName] = useState(null);
     const [mealArea, setMealArea] = useState(null);
     const [mealCategory, setMealCategory] = useState(null);
@@ -46,14 +47,20 @@ export default function Recipe() {
     useEffect(() => {
         //NEED TO WAIT FORE GETRECIPE TO FINISH before parsing it for information
         async function getRecipe() {
-            const baseUrl =
-                "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-            const recipeUrl = baseUrl + recipeParam;
-            const res = await fetch(recipeUrl);
-            const data = await res.json();
-            const meal = data["meals"][0];
-            setRecipeDetails(meal);
-            setRecipeStates(meal);
+            try {
+                const baseUrl =
+                    "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+                const recipeUrl = baseUrl + recipeParam;
+                const res = await fetch(recipeUrl);
+                const data = await res.json();
+                const meal = data["meals"][0];
+                setRecipeDetails(meal);
+                setRecipeStates(meal);
+            } catch (err) {
+                setRecipeNotFoundMessage(
+                    `The recipe for ${recipeParam} can not be found on TCR!`
+                );
+            }
         }
 
         function setRecipeStates(meal) {
@@ -74,18 +81,23 @@ export default function Recipe() {
 
     return (
         <div className="recipe-card">
-            <RecipeHeader
-                mealName={mealName}
-                mealArea={mealArea}
-                mealCategory={mealCategory}
-            />
-            <RecipeIngredients
-                ingredients={ingredList}
-                src={mealImageUrl}
-                alt={mealName}
-            />
-
-            <RecipeInstructions instructions={instructionList} />
+            {recipeDetails ? (
+                <>
+                    <RecipeHeader
+                        mealName={mealName}
+                        mealArea={mealArea}
+                        mealCategory={mealCategory}
+                    />
+                    <RecipeIngredients
+                        ingredients={ingredList}
+                        src={mealImageUrl}
+                        alt={mealName}
+                    />
+                    <RecipeInstructions instructions={instructionList} />
+                </>
+            ) : (
+                <p className="not-found-message">{recipeNotFoundMessage}</p>
+            )}
         </div>
     );
 }
