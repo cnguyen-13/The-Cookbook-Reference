@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Lists from "./Lists/Lists";
 import Recipe from "./Recipe/Recipe";
 import RecipeList from "./RecipeList";
+import TopBar from "./TopBar/TopBar";
 import { Route, Switch } from "react-router-dom";
 
 //I should pass :category as the search query for async get Datas lol
@@ -39,6 +40,7 @@ export default function App() {
 
     return (
         <div className="gridded">
+            <TopBar />
             {areaList && categoryList ? (
                 <Lists categoryList={categoryList} areaList={areaList} />
             ) : null}

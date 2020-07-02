@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function Category({ list }) {
     return (
-        <div id="category-list">
+        <div className="lists-category">
             {list.map((category) => {
                 return (
                     <Link to={`/${category}`} key={category}>
-                        <button className="category-button" value={category}>
+                        <button className="list-btn" value={category}>
                             {category}
                         </button>
                     </Link>

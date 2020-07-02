@@ -4,7 +4,7 @@ import Category from "./Category";
 
 export default function Lists({ categoryList, areaList }) {
     return (
-        <div>
+        <div className="lists">
             <Area list={areaList} />
             <Category list={categoryList} />
         </div>

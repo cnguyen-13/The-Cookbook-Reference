@@ -9,15 +9,15 @@ export default function RecipeCardDescription({
 }) {
     const { categoryParam } = useParams();
     return (
-        <section className="search-card-description">
-            <h2 className="search-card-title">{mealName}</h2>
-            <p className="search-card-info">Category: {mealCategory}</p>
-            <p className="search-card-info">Area: {mealArea}</p>
-            <p className="search-card-info">
+        <section className="recipe-card-description">
+            <h2 className="recipe-card-title">{mealName}</h2>
+            <p className="recipe-card-info">Category: {mealCategory}</p>
+            <p className="recipe-card-info">Area: {mealArea}</p>
+            <p className="recipe-card-info">
                 {mealTags ? mealTags : "No Tags"}
             </p>
             <Link to={`/${categoryParam}/${mealName}`}>
-                <button className="search-card-button">Get Recipe!</button>
+                <button className="recipe-card-button">Get Recipe!</button>
             </Link>
         </section>
     );

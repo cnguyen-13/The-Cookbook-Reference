@@ -15,6 +15,7 @@ export default function Recipe() {
     const [mealArea, setMealArea] = useState(null);
     const [mealCategory, setMealCategory] = useState(null);
     const [mealImageUrl, setMealImageUrl] = useState(null);
+
     function createIngredList() {
         //Creates ingred list
         const propertyBase = "strIngredient";
@@ -80,7 +81,7 @@ export default function Recipe() {
     }
 
     return (
-        <div className="recipe-card">
+        <div className="recipe-page">
             {recipeDetails ? (
                 <>
                     <RecipeHeader

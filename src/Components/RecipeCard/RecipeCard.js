@@ -10,7 +10,7 @@ export default function RecipeCard({ meal }) {
     const mealTags = meal.strTags;
 
     return (
-        <div className="search-card">
+        <div className="recipe-card">
             <RecipeCardImage src={imageUrl} alt={mealName} />
             <RecipeCardDescription
                 mealName={mealName}

@@ -2,10 +2,10 @@ import React from "react";
 
 export default function RecipeInstructions({ instructions }) {
     return (
-        <section className="recipe-card-instructions">
+        <section className="recipe-page-instructions">
             <div>
-                <h3 className="recipe-card-instructions-title">Instructions</h3>
-                <ol className="recipe-card-instructions-list">
+                <h3 className="recipe-page-instructions-title">Instructions</h3>
+                <ol className="recipe-page-instructions-list">
                     {instructions}
                 </ol>
             </div>

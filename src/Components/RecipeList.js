@@ -29,9 +29,9 @@ export default function RecipeList({ areaList, randomize = false }) {
 
         //Creates Cards
         async function showMeals() {
+            const listMeals = [];
+            const url = createEndPoint();
             try {
-                const listMeals = [];
-                const url = createEndPoint();
                 const res = await fetch(url);
                 const data = await res.json();
                 const meals = data.meals;
@@ -55,20 +55,22 @@ export default function RecipeList({ areaList, randomize = false }) {
         }
 
         showMeals();
-    }, [categoryParam, areaList]);
+    }, [categoryParam, areaList, randomize]);
 
     return (
-        <div>
-            <h2>
+        <section className="recipe-list-section">
+            <h2 className="recipe-list-section-message">
                 {randomize
                     ? `Enjoy Some ${randomArea} Recipes Today!`
                     : `${categoryParam} Recipes!`}
             </h2>
-            {mealsData ? (
-                mealsData
-            ) : (
-                <p className="not-found-message">{notFoundMessage}</p>
-            )}
-        </div>
+            <div className="recipe-list-section-meals-list">
+                {mealsData ? (
+                    mealsData
+                ) : (
+                    <p className="not-found-message">{notFoundMessage}</p>
+                )}
+            </div>
+        </section>
     );
 }
