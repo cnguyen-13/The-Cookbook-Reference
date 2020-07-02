@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom";
 
-export default function Area({ createEndPoint, list }) {
-    function createEndPointArea(e) {
-        createEndPoint(e, "area");
-    }
-
+export default function Area({ list }) {
     return (
         <div id="area-list">
             {list.map((area) => {
                 return (
                     <Link to={`/${area}`}>
-                        <button
-                            className="area-button"
-                            onClick={createEndPointArea}
-                            value={area}
-                        >
+                        <button className="area-button" value={area}>
                             {area}
                         </button>
                     </Link>

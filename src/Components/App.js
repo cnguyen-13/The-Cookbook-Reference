@@ -10,11 +10,10 @@ import { Route, Switch, Link, useParams } from "react-router-dom";
 export default function App() {
     const { category, choice } = useParams();
     //Break away from the MAINDISPLAY THING, its confusing, just have separate components, it might make routing EASIER
-    const [mealsData, setMealsData] = useState(null);
-    const [recipeData, setRecipeData] = useState(null);
+    const [recipeData, setRecipeData] = useState(null); //GET RID OFF
     const [endPoint, setEndPoint] = useState(null); //GET RID OF
-    const [categoryList, setCategoryList] = useState([]);
-    const [areaList, setAreaList] = useState([]);
+    const [categoryList, setCategoryList] = useState(null);
+    const [areaList, setAreaList] = useState(null);
     //Move these functions to RecipeList component, then use useParams, then ROUTE to that page
     useEffect(() => {
         async function getCategoryList() {
@@ -42,42 +41,25 @@ export default function App() {
         getAreaList();
     }, []);
 
-    function createEndPoint(e, queryBasedOn) {
-        let baseUrl;
-        if (queryBasedOn === "area") {
-            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
-        } else if (queryBasedOn === "category") {
-            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
-        } else {
-            baseUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-        }
-
-        const query = e.target.value;
-        const endPoint = baseUrl + query;
-        setEndPoint(endPoint);
-    }
-
-    function showRecipe(meal) {
-        setRecipeData(meal);
-    }
-
     return (
         <div className="gridded">
-            <Lists
-                createEndPoint={createEndPoint}
-                categoryList={categoryList}
-                areaList={areaList}
-            />
+            {areaList && categoryList ? (
+                <Lists categoryList={categoryList} areaList={areaList} />
+            ) : null}
+
             <Switch>
-                <Route path={`/:categoryParam/:choice`}>
-                    <Recipe meal={recipeData} />
+                <Route path={`/:categoryParam/:recipeParam`}>
+                    <Recipe />
                 </Route>
                 <Route path={`/:categoryParam`}>
-                    <RecipeList
-                        showRecipe={showRecipe}
-                        categoryList={categoryList}
-                        areaList={areaList}
-                    />
+                    {areaList ? (
+                        <RecipeList
+                            categoryList={categoryList}
+                            areaList={areaList}
+                        />
+                    ) : (
+                        "LOADING"
+                    )}
                 </Route>
                 <Route exact path={`/`}></Route>
                 {

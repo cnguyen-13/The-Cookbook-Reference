@@ -2,11 +2,11 @@ import React from "react";
 import Area from "./Area";
 import Category from "./Category";
 
-export default function Lists({ createEndPoint, categoryList, areaList }) {
+export default function Lists({ categoryList, areaList }) {
     return (
         <div>
-            <Area createEndPoint={createEndPoint} list={areaList} />
-            <Category createEndPoint={createEndPoint} list={categoryList} />
+            <Area list={areaList} />
+            <Category list={categoryList} />
         </div>
     );
 }

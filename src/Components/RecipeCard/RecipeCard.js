@@ -2,16 +2,12 @@ import React from "react";
 import RecipeCardImage from "./RecipeCardImage";
 import RecipeCardDescription from "./RecipeCardDescription";
 
-export default function RecipeCard({ meal, onClickFunc }) {
+export default function RecipeCard({ meal }) {
     const imageUrl = meal.strMealThumb;
     const mealName = meal.strMeal;
     const mealCategory = meal.strCategory;
     const mealArea = meal.strArea;
     const mealTags = meal.strTags;
-
-    function handleClick() {
-        onClickFunc(meal);
-    }
 
     return (
         <div className="search-card">
@@ -21,7 +17,6 @@ export default function RecipeCard({ meal, onClickFunc }) {
                 mealCategory={mealCategory}
                 mealArea={mealArea}
                 mealTags={mealTags ? mealTags : "No Tags"}
-                onClickFunc={handleClick}
             />
         </div>
     );
