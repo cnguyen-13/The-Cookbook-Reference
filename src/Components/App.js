@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Lists from "./Lists/Lists";
-import RecipeCard from "./RecipeCard/RecipeCard";
-import MainDisplay from "./MainDisplay";
 import Recipe from "./Recipe/Recipe";
 import RecipeList from "./RecipeList";
-import { Route, Switch, Link, useParams } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //I should pass :category as the search query for async get Datas lol
 export default function App() {
-    const { category, choice } = useParams();
-    //Break away from the MAINDISPLAY THING, its confusing, just have separate components, it might make routing EASIER
-    const [recipeData, setRecipeData] = useState(null); //GET RID OFF
-    const [endPoint, setEndPoint] = useState(null); //GET RID OF
     const [categoryList, setCategoryList] = useState(null);
     const [areaList, setAreaList] = useState(null);
+
     //Move these functions to RecipeList component, then use useParams, then ROUTE to that page
     useEffect(() => {
         async function getCategoryList() {

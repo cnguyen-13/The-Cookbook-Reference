@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Area({ list }) {
     return (

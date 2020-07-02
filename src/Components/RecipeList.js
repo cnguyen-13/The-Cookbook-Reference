@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard/RecipeCard";
 import { useParams } from "react-router-dom";
-export default function RecipeList({
-    showRecipe,
-    categoryList,
-    areaList,
-    randomize = false,
-}) {
+export default function RecipeList({ areaList, randomize = false }) {
     const { categoryParam } = useParams();
     const [mealsData, setMealsData] = useState(null);
 
-    function createEndPoint() {
-        let baseUrl;
-        if (areaList.includes(categoryParam)) {
-            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
-        } else {
-            baseUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+    useEffect(() => {
+        function createEndPoint() {
+            let baseUrl;
+            if (areaList.includes(categoryParam)) {
+                baseUrl =
+                    "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
+            } else {
+                baseUrl =
+                    "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+            }
+
+            const endPoint = baseUrl + categoryParam;
+            return endPoint;
         }
 
-        const endPoint = baseUrl + categoryParam;
-        return endPoint;
-    }
-    useEffect(() => {
         //Creates Cards
         async function showMeals() {
             const url = createEndPoint();
@@ -43,7 +41,7 @@ export default function RecipeList({
         }
 
         showMeals();
-    }, [categoryParam]);
+    }, [categoryParam, areaList]);
 
     return (
         <div>
