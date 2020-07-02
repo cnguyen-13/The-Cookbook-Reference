@@ -4,19 +4,24 @@ import { useParams } from "react-router-dom";
 export default function RecipeList({ areaList, randomize = false }) {
     const { categoryParam } = useParams();
     const [mealsData, setMealsData] = useState(null);
-
+    const [randomArea, setRandomArea] = useState(null);
     useEffect(() => {
         function createEndPoint() {
-            let baseUrl;
-            if (areaList.includes(categoryParam)) {
-                baseUrl =
-                    "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
+            let endPoint;
+            let baseUrl =
+                "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
+            if (randomize) {
+                const randomIdx = Math.floor(Math.random() * areaList.length);
+                const randomArea = areaList[randomIdx];
+                setRandomArea(randomArea);
+                endPoint = baseUrl + randomArea;
             } else {
-                baseUrl =
-                    "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+                if (!areaList.includes(categoryParam)) {
+                    baseUrl =
+                        "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+                }
+                endPoint = baseUrl + categoryParam;
             }
-
-            const endPoint = baseUrl + categoryParam;
             return endPoint;
         }
 
@@ -45,7 +50,11 @@ export default function RecipeList({ areaList, randomize = false }) {
 
     return (
         <div>
-            <h2>{categoryParam} Recipes!</h2>
+            <h2>
+                {randomize
+                    ? `Enjoy Some ${randomArea} Recipes!`
+                    : `${categoryParam} Recipes!`}
+            </h2>
             {mealsData}
         </div>
     );

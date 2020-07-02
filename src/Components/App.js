@@ -56,10 +56,17 @@ export default function App() {
                         "LOADING"
                     )}
                 </Route>
-                <Route exact path={`/`}></Route>
-                {
-                    //randomize list shown}
-                }
+                <Route exact path={`/`}>
+                    {areaList ? (
+                        <RecipeList
+                            categoryList={categoryList}
+                            areaList={areaList}
+                            randomize={true}
+                        />
+                    ) : (
+                        "LOADING"
+                    )}
+                </Route>
             </Switch>
         </div>
     );
