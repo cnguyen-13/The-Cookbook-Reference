@@ -6,9 +6,12 @@
 .list-btn {
     margin: 5px;
     text-decoration: none;
+    color: black;
 }
 
 .list-btn:hover {
+    font-size: 24px;
+    color: $color-base;
 }
 
 .lists-category,
@@ -16,6 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 a {

@@ -8,7 +8,7 @@ export default function RecipeCard({ meal }) {
     const mealCategory = meal.strCategory;
     const mealArea = meal.strArea;
     const mealTags = meal.strTags;
-    console.log(mealTags);
+
     return (
         <div className="recipe-card">
             <RecipeCardImage src={imageUrl} alt={mealName} />

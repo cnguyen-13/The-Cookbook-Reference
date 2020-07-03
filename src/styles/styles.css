@@ -20,7 +20,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
   color: white;
 }
 
@@ -35,6 +35,11 @@
   font-size: 22px;
 }
 
+.top-bar-initials:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
 .lists {
   margin: 20px 0;
   padding: 5px;
@@ -43,6 +48,12 @@
 .list-btn {
   margin: 5px;
   text-decoration: none;
+  color: black;
+}
+
+.list-btn:hover {
+  font-size: 24px;
+  color: #27ae60;
 }
 
 .lists-category,
@@ -55,6 +66,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
 }
 
 a {
@@ -138,5 +150,10 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.recipe-page {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=styles.css.map */
