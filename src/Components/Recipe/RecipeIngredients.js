@@ -8,7 +8,7 @@ export default function RecipeIngredients({ ingredients, src, alt }) {
                 src={src}
                 alt={alt}
             />
-            <div>
+            <div className="recipe-page-ingredients-text">
                 <h3 className="recipe-page-ingredients-title">Ingredients</h3>
                 <ul className="recipe-page-ingredients-list">{ingredients}</ul>
             </div>

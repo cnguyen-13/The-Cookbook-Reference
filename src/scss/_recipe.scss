@@ -1,22 +1,23 @@
-.recipe-page {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
 //Header
 
 .recipe-page-header {
+    text-align: center;
 }
 
 .recipe-page-title {
 }
 
 .recipe-page-subtitle {
+    font-size: 20px;
 }
 
 //Ingredients
 
 .recipe-page-ingredients {
+}
+
+.recipe-page-ingredients-text {
+    margin-left: 30px;
 }
 
 .recipe-page-ingredients-title {
@@ -26,6 +27,12 @@
 }
 
 .recipe-page-ingredients-image {
+    margin: 20px;
+    margin-top: 0;
+    width: 450px;
+    height: 350px;
+    margin: 0 auto;
+    display: block;
 }
 
 //Instructions

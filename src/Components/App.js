@@ -39,7 +39,7 @@ export default function App() {
     }, []);
 
     return (
-        <div className="gridded">
+        <div className="app">
             <TopBar />
             {areaList && categoryList ? (
                 <Lists categoryList={categoryList} areaList={areaList} />
