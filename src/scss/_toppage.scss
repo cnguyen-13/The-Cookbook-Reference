@@ -1,6 +1,6 @@
 .top-page {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color: $color-black-box-bg;
+    color: $color-white-text;
     padding: 20px;
     min-height: 300px;
 }
@@ -9,7 +9,7 @@
     font-family: $font-logo;
     font-size: 30px;
     text-decoration: none;
-    color: #eee;
+    color: $color-white-text;
     display: inline-block;
 }
 
@@ -35,7 +35,7 @@ html {
 }
 
 .top-page-description {
-    opacity: 0.8;
+    color: $color-white-text-opac;
     line-height: 23px;
 }
 @media (min-width: 1000px) {
@@ -45,7 +45,7 @@ html {
     }
     .top-page-description {
         font-size: 20px;
-        line-height: 25px;
+        line-height: 27px;
         padding-right: 50px;
     }
 }

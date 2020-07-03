@@ -8,6 +8,10 @@
   font-family: "Playfair Display", serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .top-page {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
@@ -19,7 +23,7 @@
   font-family: "Bungee Shade", cursive;
   font-size: 30px;
   text-decoration: none;
-  color: #eee;
+  color: white;
   display: inline-block;
 }
 
@@ -44,7 +48,7 @@ html {
 }
 
 .top-page-description {
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 23px;
 }
 
@@ -59,7 +63,7 @@ html {
   }
   .top-page-description {
     font-size: 20px;
-    line-height: 25px;
+    line-height: 27px;
     padding-right: 50px;
   }
 }
@@ -90,18 +94,14 @@ html {
   margin-bottom: 20px;
 }
 
-a {
-  text-decoration: none;
-}
-
 .lists-title {
-  margin: 5px;
   margin-bottom: 20px;
 }
 
 @media (min-width: 1000px) {
   .lists {
     text-align: left;
+    margin-left: 20px;
   }
 }
 
