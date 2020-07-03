@@ -8,41 +8,66 @@
   font-family: "Playfair Display", serif;
 }
 
-.top-bar {
-  height: 100px;
-  background-color: #27ae60;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 20px;
+.top-page {
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  padding: 20px;
+  min-height: 300px;
 }
 
-.top-bar-initials {
+.top-page-initials {
   font-family: "Bungee Shade", cursive;
   font-size: 30px;
   text-decoration: none;
-  color: white;
+  color: #eee;
+  display: inline-block;
 }
 
-.top-bar-title {
-  font-size: 22px;
+.top-page-title {
+  margin-bottom: 20px;
+  font-size: 50px;
 }
 
-.top-bar-initials:hover {
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
+.top-page-initials:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+html {
+  padding: 20px;
+}
+
+.divider {
+  height: 50px;
+  background-color: #27ae60;
+  margin: 50px 0;
+}
+
+.top-page-description {
+  opacity: 0.8;
+  line-height: 23px;
+}
+
+@media (min-width: 1000px) {
+  .main-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .top-page-description {
+    font-size: 20px;
+    line-height: 25px;
+    padding-right: 50px;
+  }
 }
 
 .lists {
   margin: 20px 0;
   padding: 5px;
+  text-align: center;
 }
 
 .list-btn {
@@ -52,7 +77,6 @@
 }
 
 .list-btn:hover {
-  font-size: 24px;
   color: #27ae60;
 }
 
@@ -63,9 +87,6 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -74,8 +95,14 @@ a {
 }
 
 .lists-title {
-  text-align: center;
+  margin: 5px;
   margin-bottom: 20px;
+}
+
+@media (min-width: 1000px) {
+  .lists {
+    text-align: left;
+  }
 }
 
 .recipe-card {
