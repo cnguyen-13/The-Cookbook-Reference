@@ -33,6 +33,7 @@
 }
 
 .recipe-card-title {
+    margin-bottom: 5px;
 }
 
 .recipe-card-info {
@@ -40,4 +41,16 @@
 
 .recipe-card-button {
     cursor: pointer;
+    padding: 5px 15px;
+    color: white;
+    background-color: $color-base;
+    border: none;
+    border-radius: 2px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.recipe-card-button:hover {
+    transform: scale(1.1);
 }

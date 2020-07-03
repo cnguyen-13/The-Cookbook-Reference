@@ -8,7 +8,7 @@ export default function RecipeCard({ meal }) {
     const mealCategory = meal.strCategory;
     const mealArea = meal.strArea;
     const mealTags = meal.strTags;
-
+    console.log(mealTags);
     return (
         <div className="recipe-card">
             <RecipeCardImage src={imageUrl} alt={mealName} />
@@ -16,7 +16,7 @@ export default function RecipeCard({ meal }) {
                 mealName={mealName}
                 mealCategory={mealCategory}
                 mealArea={mealArea}
-                mealTags={mealTags ? mealTags : "No Tags"}
+                mealTags={mealTags ? mealTags.replace(/,/g, ", ") : null}
             />
         </div>
     );
