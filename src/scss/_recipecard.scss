@@ -1,0 +1,43 @@
+.recipe-card {
+    margin: 20px;
+    width: 350px;
+    height: 250px;
+    position: relative;
+}
+
+//Foreground before hover
+.recipe-card-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.recipe-card-image:hover {
+    z-index: -1;
+}
+
+//Show when hovered // back mask image
+.recipe-card-description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    z-index: 0;
+    padding: 30px;
+}
+
+.recipe-card-description:hover {
+    z-index: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.recipe-card-title {
+}
+
+.recipe-card-info {
+}
+
+.recipe-card-button {
+    cursor: pointer;
+}

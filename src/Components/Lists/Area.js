@@ -7,9 +7,9 @@ export default function Area({ list }) {
             {list.map((area) => {
                 return (
                     <Link to={`/${area}`} key={area}>
-                        <button className="list-btn" value={area}>
+                        <span className="list-btn" value={area}>
                             {area}
-                        </button>
+                        </span>
                     </Link>
                 );
             })}

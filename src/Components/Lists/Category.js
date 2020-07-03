@@ -7,9 +7,9 @@ export default function Category({ list }) {
             {list.map((category) => {
                 return (
                     <Link to={`/${category}`} key={category}>
-                        <button className="list-btn" value={category}>
+                        <span className="list-btn" value={category}>
                             {category}
-                        </button>
+                        </span>
                     </Link>
                 );
             })}

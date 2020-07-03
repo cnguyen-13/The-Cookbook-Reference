@@ -13,9 +13,7 @@ export default function RecipeCardDescription({
             <h2 className="recipe-card-title">{mealName}</h2>
             <p className="recipe-card-info">Category: {mealCategory}</p>
             <p className="recipe-card-info">Area: {mealArea}</p>
-            <p className="recipe-card-info">
-                {mealTags ? mealTags : "No Tags"}
-            </p>
+            <p className="recipe-card-info">{mealTags ? mealTags : null}</p>
             <Link to={`/${categoryParam}/${mealName}`}>
                 <button className="recipe-card-button">Get Recipe!</button>
             </Link>

@@ -2,12 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 //Header
 $font-logo: "Bungee Shade", cursive;
-$font-not-logo: "Playfair Display", serif;
+$font-general: "Playfair Display", serif;
 
 //Colors
-$color-primary: #0d2432;
-$color-outline-text: #ffffff;
-$color-buttons: #ec3528;
-$color-search-card-border: grey;
-$color-highlight: #009eda;
-$color-recipe-card-bg: #ffffff;
+$color-base: rgb(39, 174, 96);
