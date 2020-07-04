@@ -70,7 +70,7 @@ html {
 
 .divider {
   height: 50px;
-  background-color: #27ae60;
+  background-color: #c0392b;
   margin: 50px 0;
 }
 
@@ -233,7 +233,7 @@ html {
 
 .recipe-page-ingredients {
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #e67e22;
   color: white;
 }
 
