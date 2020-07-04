@@ -2,22 +2,33 @@
 
 .recipe-page-header {
     text-align: center;
+    margin: 50px 0;
 }
 
 .recipe-page-title {
+    font-size: 2.25em;
 }
 
 .recipe-page-subtitle {
     font-size: 20px;
+    opacity: 0.8;
 }
 
 //Ingredients
 
 .recipe-page-ingredients {
+    //margin-left: 30px;
+    padding: 20px;
+    background-color: $color-black-box-bg;
+    color: $color-white-text;
 }
 
-.recipe-page-ingredients-text {
-    margin-left: 30px;
+.recipe-page-ingredients-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.recipe-page-instructions-title {
+    margin: 20px 0;
 }
 
 .recipe-page-ingredients-title {
@@ -26,21 +37,72 @@
 .recipe-page-ingredients-list {
 }
 
+.recipe-page-ingredients-list-item {
+    padding-bottom: 10px;
+    margin-left: -10px;
+    margin-left: 23px;
+}
+
+//Image
 .recipe-page-ingredients-image {
     margin: 20px;
     margin-top: 0;
     width: 450px;
     height: 350px;
-    margin: 0 auto;
+    margin: 20px auto;
     display: block;
 }
 
 //Instructions
 .recipe-page-instructions {
+    padding: 20px;
+    //margin-left: 30px;
 }
 
 .recipe-page-instructions-title {
 }
 
 .recipe-page-instructions-list {
+    list-style: none;
+    counter-reset: red-bold-counter;
+}
+.recipe-page-instructions-list-item {
+    counter-increment: red-bold-counter;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-black-linear-grad;
+}
+
+.recipe-page-instructions-list-item:last-child {
+    border: none;
+}
+
+.recipe-page-instructions-list-item::before {
+    content: counter(red-bold-counter) ". ";
+    color: red;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+@media (min-width: 1000px) {
+    .recipe-page-ingredients {
+        display: inline-block;
+        width: 40%;
+    }
+
+    .recipe-page-ingredients-image {
+        display: inline-block;
+    }
+
+    .recipe-page-ingredients-image {
+        width: 50%;
+        height: 500px;
+        margin: 0;
+    }
+
+    .flexbox-1000 {
+        padding: 20px;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
 }

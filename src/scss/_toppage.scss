@@ -1,8 +1,14 @@
 .top-page {
-    background-color: $color-black-box-bg;
+    //background-color: $color-black-box-bg;
     color: $color-white-text;
     padding: 20px;
     min-height: 300px;
+    background: linear-gradient(
+            $color-black-linear-grad,
+            $color-black-linear-grad
+        ),
+        url("../images/background.jpg");
+    background-size: cover;
 }
 
 .top-page-initials {

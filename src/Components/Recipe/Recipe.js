@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RecipeHeader from "./RecipeHeader";
+import RecipeImage from "./RecipeImage";
 import RecipeIngredients from "./RecipeIngredients.js";
 import RecipeInstructions from "./RecipeInstructions";
 import { useParams } from "react-router-dom";
@@ -31,7 +32,12 @@ export default function Recipe() {
 
         const ingredList = listOfIngreds.map((pair) => {
             //Each pair is a measurement, ingred pair ex. ['100mL', 'water']
-            return <li key={pair[1]}>{`${pair[0]} - ${pair[1]}`}</li>;
+            return (
+                <li
+                    className="recipe-page-ingredients-list-item"
+                    key={pair[1]}
+                >{`${pair[0]} - ${pair[1]}`}</li>
+            );
         });
         setIngredList(ingredList);
     }
@@ -41,7 +47,11 @@ export default function Recipe() {
         const steps = recipeDetails["strInstructions"].split(".");
         steps.pop();
         const instructionList = steps.map((step) => {
-            return <li key={step}>{step}.</li>;
+            return (
+                <li className="recipe-page-instructions-list-item" key={step}>
+                    {step}.
+                </li>
+            );
         });
         setInstructionList(instructionList);
     }
@@ -89,11 +99,11 @@ export default function Recipe() {
                         mealArea={mealArea}
                         mealCategory={mealCategory}
                     />
-                    <RecipeIngredients
-                        ingredients={ingredList}
-                        src={mealImageUrl}
-                        alt={mealName}
-                    />
+                    <div className="flexbox-1000">
+                        <RecipeImage src={mealImageUrl} alt={mealName} />
+                        <RecipeIngredients ingredients={ingredList} />
+                    </div>
+
                     <RecipeInstructions instructions={instructionList} />
                 </>
             ) : (
