@@ -9,6 +9,8 @@
         ),
         url("../images/background.jpg");
     background-size: cover;
+    opacity: 0;
+    animation: fadeIn 0.6s 1s forwards;
 }
 
 .top-page-initials {
