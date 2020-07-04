@@ -1,16 +1,16 @@
 ###The Cookbook Reference REWORKED:
 
--react-router-dom usage to allow users to link certain pages and use the browsers history function to go forward and backwards.
--uses hooks, no more class components.
--Make sure API calls and components are only rendering/rerending once.
--Complete UI/UX rework.
--Simple animations.
--Initial Screen now loads with a random area. 
--Remove unused code.
--Cleaned code to an extent.
--List items.
--Error Checking and handling.
--Fixed bug with infinite loop regarding loading of certain recipes.
+* react-router-dom usage to allow users to link certain pages and use the browsers history function to go forward and backwards.
+* uses hooks, no more class components.
+* Make sure API calls and components are only rendering/rerending once.
+* Complete UI/UX rework.
+* Simple animations.
+* Initial Screen now loads with a random area. 
+* Remove unused code.
+* Cleaned code to an extent.
+* List items.
+* Error Checking and handling.
+* Fixed bug with infinite loop regarding loading of certain recipes.
 
 
 ###The Cookbook Reference:
