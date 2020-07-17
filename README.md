@@ -21,11 +21,11 @@ Users can select a category or area to filter out the available recipes.
 Ex. "Beef" will gather all the recipes regarding beef and "American"will gather all American dishes.
 
 The user can then click on the "Get Recipe!" button to get a detailed rundown of the recipe!
-## To run in your own browser:
+# To run in your own browser:
   1. Download the project folder
   2. Using your terminal, cd into the project folder
   3. run 'npm install' to get the node_modules
   4. run 'npm start'
   
-### Tech used:
+# Tech used:
 HTML, CSS/SASS, JavaScript, React
