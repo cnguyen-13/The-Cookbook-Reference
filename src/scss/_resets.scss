@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: $font-general;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    max-width: 1600px;
+    margin: 0 auto;
+}
